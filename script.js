@@ -27,33 +27,36 @@ async function initContributionChart() {
   try {
     // GraphQL query for contribution data
     const query = `
-      query {
-        user(login: "TheOnlySolomon") {
-          contributionsCollection {
-            contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                  date
-                }
-              }
+  query {
+    user(login: "TheOnlySolomon") {
+      contributionsCollection {
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays {
+              contributionCount
+              date
             }
           }
         }
       }
-    `;
+    }
+  }
+`;
 
-    const response = await fetch('https://api.github.com/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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' // ✅ FIXED
-      },
-      body: JSON.stringify({ query })
-    });
+const response = await fetch('/api/github', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ query })
+});
 
-    const data = await response.json();
+if (!response.ok) {
+  throw new Error(`Server error: ${response.status}`);
+}
+
+const data = await response.json();
     const calendar = data.data.user.contributionsCollection.contributionCalendar;
     
     // Process last 6 months of data

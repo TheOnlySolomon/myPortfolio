@@ -65,21 +65,21 @@
   <section id="about" class="container timeline-section reveal">
     <div class="row justify-content-center g-3"> 
 
-      <!-- LEFT SIDE (3 Panels -> Purple) -->
+      <!-- LEFT SIDE (2 Panels -> Purple) -->
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
         
         <!-- Panel 1: Contribution Trend with Chart.js -->
-        <div class="hud-panel panel-purple flex-fill" style="min-height: 212px;">
+        <div class="hud-panel panel-purple flex-fill" style="min-height: 250px;">
           <div class="panel-header">
             <span class="panel-title">Github Contribution</span>
             <span class="panel-status-dot online"></span>
           </div>
-          <div class="panel-body p-0" style="height: 128px; position: relative;">
+          <div class="panel-body p-0" style="height: 190px; position: relative;">
             <canvas id="contributionChart"></canvas>
           </div>
         </div>
 
-        <!-- Panel 3: Stats Overview -->
+        <!-- Panel 2: Stats Overview -->
         <div class="hud-panel panel-purple flex-fill">
           <div class="panel-header">
             <span class="panel-title">Github Stats</span>
@@ -153,19 +153,63 @@
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
         <div class="hud-panel panel-orange flex-fill">
           <div class="panel-header">
-            <span class="panel-title">MY PROJECTS</span>
+            <span class="panel-title">RECENT ACTIVITY</span>
             <span class="panel-status-dot online"></span>
           </div>
-          
+          <div class="panel-body">
+            <div class="activity-item">
+              <span class="activity-dot"></span>
+              <span class="activity-text">Pushed to main</span>
+              <span class="activity-time">2h ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-dot"></span>
+              <span class="activity-text">Created PR #42</span>
+              <span class="activity-time">5h ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-dot"></span>
+              <span class="activity-text">Opened issue</span>
+              <span class="activity-time">1d ago</span>
+            </div>
+            <div class="activity-item">
+              <span class="activity-dot"></span>
+              <span class="activity-text">Merged PR #41</span>
+              <span class="activity-time">2d ago</span>
+            </div>
+          </div>
         </div>
 
         <div class="hud-panel panel-orange flex-fill" style="min-height: 200px;">
           <div class="panel-header">
-            <span class="panel-title">GOALS</span>
-            <span class="panel-status-dot online"></span>
+            <span class="panel-title">WEEKLY ACTIVITY</span>
+          </div>
+          <div class="activity-list" id="githubActivity">
+            <div class="activity-loading">Loading activity...</div>
+          </div>
+        </div>
+
+        <div class="hud-panel panel-orange flex-fill">
+          <div class="panel-header">
+            <span class="panel-title">QUICK LINKS</span>
+          </div>
+          <div class="panel-body">
+            <div class="quick-link-item">
+              <i class="bi bi-github"></i>
+              <span>GitHub Profile</span>
+            </div>
+            <div class="quick-link-item">
+              <i class="bi bi-linkedin"></i>
+              <span>LinkedIn</span>
+            </div>
+            <div class="quick-link-item">
+              <i class="bi bi-envelope"></i>
+              <span>Email Me</span>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
