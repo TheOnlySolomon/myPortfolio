@@ -150,8 +150,8 @@ a { color: inherit; }
   margin: 0;
 }
 .avatar-ring {
-  width: 160px;
-  height: 160px;
+  width: clamp(100px, 22vw, 160px);
+  height: clamp(100px, 22vw, 160px);
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -175,6 +175,13 @@ a { color: inherit; }
   border-color: var(--panel-accent);
   transform: translateY(-6px);
   box-shadow: 0 12px 28px -12px var(--panel-accent);
+}
+.hud-panel.panel-compact {
+  padding: 1.25rem;
+  flex: 0 0 auto;
+}
+.hud-panel.panel-compact .panel-title {
+  margin-bottom: 0.75rem;
 }
 .hud-panel.panel-purple { --panel-accent: var(--purple-hover); }
 .hud-panel.panel-yellow { --panel-accent: var(--yellow-hover); }
@@ -323,7 +330,6 @@ a { color: inherit; }
    10. RESPONSIVE
    ========================================================= */
 @media (max-width: 576px) {
-  .avatar-ring { width: 140px; height: 140px; }
   .nav-links a { margin-left: 1rem; font-size: 0.7rem; }
 }
 

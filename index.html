@@ -43,16 +43,16 @@
 
   <!-- Profile Section -->
   <section class="container profile-section reveal">
-    <div class="row align-items-center">
-      <div class="col-3">
-        <div class="avatar-ring border border-3 border-primary rounded-circle p-1">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-sm-4 col-md-3 text-center text-sm-start">
+        <div class="avatar-ring border border-3 border-primary rounded-circle p-1 mx-auto mx-sm-0">
           <img src="./imgs/profile.png" 
             alt="Profile picture of Solomon Chua" 
             class="img-fluid rounded-circle"
-            style="width: 150px; height: 150px; object-fit: cover;">
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
       </div>
-      <div class="col-9">
+      <div class="col-12 col-sm-8 col-md-9">
         <p class="eyebrow">// identity.log</p>
         <p class="profile-text">
           Hello! Solomon here, a student in Nanyang Polytechnic, Year 1 in Applied AI &amp; Data Analytics in Singapore! Welcome to my portfolio — it features my projects, interests and hobbies. Feel free to explore.
@@ -69,18 +69,18 @@
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
         
         <!-- Panel 1: Contribution Trend with Chart.js -->
-        <div class="hud-panel panel-purple flex-fill" style="min-height: 250px;">
+        <div class="hud-panel panel-purple panel-compact">
           <div class="panel-header">
             <span class="panel-title">Github Contribution</span>
             <span class="panel-status-dot online"></span>
           </div>
-          <div class="panel-body p-0" style="height: 190px; position: relative;">
+          <div class="panel-body p-0" style="height: 140px; position: relative;">
             <canvas id="contributionChart"></canvas>
           </div>
         </div>
 
         <!-- Panel 2: Stats Overview -->
-        <div class="hud-panel panel-purple flex-fill">
+        <div class="hud-panel panel-purple panel-compact">
           <div class="panel-header">
             <span class="panel-title">Github Stats</span>
             <span class="panel-status-dot online"></span>
@@ -115,6 +115,7 @@
           </div>
         </div>
       </div>
+      
       <!-- CENTER (Timeline -> Yellow) -->
       <div class="col-12 col-md-6">
         <div class="hud-panel panel-yellow h-100">
