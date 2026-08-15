@@ -6,11 +6,19 @@ export default async function handler(req, res) {
   try {
     const { query } = req.body;
 
+    const token = process.env.GITHUB_TOKEN;
+
+    if (!token) {
+      return res.status(500).json({
+        error: 'GITHUB_TOKEN is missing from Vercel'
+      });
+    }
+
     const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({ query })
     });
