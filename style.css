@@ -1,32 +1,24 @@
 /* =========================================================
    1. DESIGN TOKENS
-   Pure grayscale palette — change these 6 values and the
-   whole site retones. Nothing below should use a raw color.
    ========================================================= */
 :root {
-  --black:       #0a0e17;   /* deep space-navy page background */
-  --panel:       #10141f;   /* card / panel background */
-  --line:        #232a3d;   /* resting borders */
-  --line-bright: #3a4260;   /* active / hover borders */
-  --white:       #eef2f6;   /* headings, primary text */
-  --gray-1:      #b8c0cc;   /* body text */
-  --gray-2:      #6f7890;   /* secondary / muted text */
-
-  /* Accent palette — the "vibrant" layer. Change these four to
-     retheme every colorful touch (cards, brand, cursor, glows). */
+  --black:       #0a0e17;
+  --panel:       #10141f;
+  --line:        #232a3d;
+  --line-bright: #3a4260;
+  --white:       #eef2f6;
+  --gray-1:      #b8c0cc;
+  --gray-2:      #6f7890;
   --cyan:   #2fe5ff;
   --violet: #9b6bff;
   --amber:  #ffb454;
   --pink:   #ff6fb1;
-
-  /* Custom Hover Accents for Panels */
   --purple-hover: #a855f7;
   --yellow-hover: #eab308;
   --orange-hover: #f97316;
-
   --font: 'JetBrains Mono', monospace;
   --gap: 1.5rem;
-  --radius: 18px;           /* smooth, rounded corners */
+  --radius: 18px;
   --radius-sm: 10px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -35,7 +27,6 @@
    2. BASE & RESET
    ========================================================= */
 * { box-sizing: border-box; }
-
 body {
   background: var(--black);
   color: var(--gray-1);
@@ -43,23 +34,14 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-
 a { color: inherit; }
-
-::selection {
-  background: var(--white);
-  color: var(--black);
-}
-
-/* Respect users who prefer reduced motion */
+::selection { background: var(--white); color: var(--black); }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
 
 /* =========================================================
-   3. BACKGROUND — grid + scanline
-   Signature ambient effect: a faint drifting grid with a
-   single light scanline sweeping down the page.
+   3. BACKGROUND
    ========================================================= */
 .hud-grid {
   position: fixed;
@@ -72,14 +54,10 @@ a { color: inherit; }
   opacity: 0.25;
   animation: drift 40s linear infinite;
 }
-
 @keyframes drift {
   from { background-position: 0 0; }
   to   { background-position: 48px 48px; }
 }
-
-/* Soft blurred color blobs — the source of the "vibrant" feel.
-   Purely decorative, sit behind the grid, never intercept clicks. */
 .hud-glow {
   position: fixed;
   inset: 0;
@@ -90,7 +68,6 @@ a { color: inherit; }
     radial-gradient(520px circle at 90% 20%, rgba(155, 107, 255, 0.14), transparent 60%),
     radial-gradient(460px circle at 25% 95%, rgba(255, 111, 177, 0.10), transparent 60%);
 }
-
 .hud-scanline {
   position: fixed;
   left: 0;
@@ -101,7 +78,6 @@ a { color: inherit; }
   opacity: 0.5;
   animation: scan 8s linear infinite;
 }
-
 @keyframes scan {
   0%   { top: 0%; }
   100% { top: 100%; }
@@ -116,7 +92,6 @@ a { color: inherit; }
   margin-bottom: 2rem;
   backdrop-filter: blur(6px);
 }
-
 .brand {
   font-weight: 700;
   font-size: 1.1rem;
@@ -127,19 +102,13 @@ a { color: inherit; }
   background-clip: text;
   color: transparent;
 }
-
 .brand i { color: var(--cyan); -webkit-text-fill-color: var(--cyan); }
-
 .cursor {
   animation: blink 1s step-end infinite;
   color: var(--cyan);
   -webkit-text-fill-color: var(--cyan);
 }
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
+@keyframes blink { 50% { opacity: 0; } }
 .nav-links a {
   color: var(--gray-2);
   text-decoration: none;
@@ -151,7 +120,6 @@ a { color: inherit; }
   padding-bottom: 2px;
   transition: color 0.25s var(--ease);
 }
-
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -161,20 +129,13 @@ a { color: inherit; }
   background: var(--cyan);
   transition: width 0.25s var(--ease);
 }
-
-.nav-links a:hover {
-  color: var(--cyan);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover { color: var(--cyan); }
+.nav-links a:hover::after { width: 100%; }
 
 /* =========================================================
    5. PROFILE SECTION
    ========================================================= */
 .profile-section { margin-bottom: 4rem; }
-
 .eyebrow {
   color: var(--gray-2);
   font-size: 0.75rem;
@@ -182,23 +143,12 @@ a { color: inherit; }
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
-
 .profile-text {
   color: var(--gray-1);
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
 }
-
-/* Static gradient frame around the avatar — a fixed cyan-to-violet
-   ring with a slow breathing glow. No rotation, just a gentle pulse. */
-.avatar-frame {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  padding: 3px;
-}
-
 .avatar-ring {
   width: 160px;
   height: 160px;
@@ -207,21 +157,10 @@ a { color: inherit; }
   flex-shrink: 0;
 }
 
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  background: var(--panel);
-  border: 3px solid var(--black);
-}
-
 /* =========================================================
    6. TIMELINE & HUD PANELS
    ========================================================= */
 .timeline-section { margin-bottom: 4rem; }
-
 .hud-panel {
   --panel-accent: var(--line-bright);
   background: var(--panel);
@@ -232,27 +171,14 @@ a { color: inherit; }
   overflow: hidden;
   transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-
-/* Hover base animation (similar to .hud-card) */
 .hud-panel:hover {
   border-color: var(--panel-accent);
   transform: translateY(-6px);
   box-shadow: 0 12px 28px -12px var(--panel-accent);
 }
-
-/* Panel Accent Color Modifiers */
-.hud-panel.panel-purple {
-  --panel-accent: var(--purple-hover);
-}
-
-.hud-panel.panel-yellow {
-  --panel-accent: var(--yellow-hover);
-}
-
-.hud-panel.panel-orange {
-  --panel-accent: var(--orange-hover);
-}
-
+.hud-panel.panel-purple { --panel-accent: var(--purple-hover); }
+.hud-panel.panel-yellow { --panel-accent: var(--yellow-hover); }
+.hud-panel.panel-orange { --panel-accent: var(--orange-hover); }
 .panel-title {
   color: var(--cyan);
   font-weight: 700;
@@ -261,22 +187,17 @@ a { color: inherit; }
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
 }
-
 .timeline {
   list-style: none;
   margin: 0;
   padding-left: 1.25rem;
   border-left: 1px solid var(--line);
 }
-
 .timeline li {
   position: relative;
   padding-bottom: 1.25rem;
 }
-
 .timeline li:last-child { padding-bottom: 0; }
-
-/* Node dot on the timeline rail */
 .timeline li::before {
   content: '';
   position: absolute;
@@ -288,15 +209,12 @@ a { color: inherit; }
   background: var(--violet);
   box-shadow: 0 0 8px var(--violet);
 }
-
-/* Timeline dots with different colors per year */
-.timeline li:nth-child(1)::before { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }      /* 2026 */
-.timeline li:nth-child(2)::before { background: var(--violet); box-shadow: 0 0 8px var(--violet); }    /* 2025 */
-.timeline li:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 8px var(--amber); }      /* 2024 */
-.timeline li:nth-child(4)::before { background: var(--pink); box-shadow: 0 0 8px var(--pink); }        /* 2023 */
-.timeline li:nth-child(5)::before { background: var(--purple-hover); box-shadow: 0 0 8px var(--purple-hover); } /* 2022 */
-.timeline li:nth-child(6)::before { background: var(--orange-hover); box-shadow: 0 0 8px var(--orange-hover); } /* 2019 */
-
+.timeline li:nth-child(1)::before { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+.timeline li:nth-child(2)::before { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
+.timeline li:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+.timeline li:nth-child(4)::before { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+.timeline li:nth-child(5)::before { background: var(--purple-hover); box-shadow: 0 0 8px var(--purple-hover); }
+.timeline li:nth-child(6)::before { background: var(--orange-hover); box-shadow: 0 0 8px var(--orange-hover); }
 .timeline-year {
   display: block;
   color: var(--white);
@@ -304,7 +222,6 @@ a { color: inherit; }
   font-size: 0.85rem;
   letter-spacing: 0.05em;
 }
-
 .timeline-text {
   color: var(--gray-2);
   font-size: 0.9rem;
@@ -312,13 +229,10 @@ a { color: inherit; }
 
 /* =========================================================
    7. CARDS
-   Smooth rounded panels, each carrying one accent color from
-   the palette (set via --accent on the modifier class below).
    ========================================================= */
 .cards-section { margin-bottom: 4rem; }
-
 .hud-card {
-  --accent: var(--cyan); /* default; overridden per modifier below */
+  --accent: var(--cyan);
   position: relative;
   background: var(--panel);
   border: 1px solid var(--line);
@@ -326,11 +240,8 @@ a { color: inherit; }
   padding: 1.75rem;
   height: 100%;
   overflow: hidden;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease),
-              box-shadow 0.3s var(--ease);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-
-/* Thin accent bar along the top edge, echoing the card's color */
 .hud-card::before {
   content: '';
   position: absolute;
@@ -339,27 +250,22 @@ a { color: inherit; }
   background: var(--accent);
   opacity: 0.7;
 }
-
 .hud-card:hover {
   border-color: var(--accent);
   transform: translateY(-6px);
   box-shadow: 0 12px 28px -12px var(--accent);
 }
-
 .hud-card--cyan   { --accent: var(--cyan); }
 .hud-card--violet { --accent: var(--violet); }
 .hud-card--amber  { --accent: var(--amber); }
 .hud-card--pink   { --accent: var(--pink); }
-
 .hud-card-title {
   color: var(--white);
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-
 .hud-card-title i { color: var(--accent); }
-
 .hud-card-text {
   color: var(--gray-2);
   font-size: 0.85rem;
@@ -374,11 +280,7 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   text-align: center;
 }
-
-.social-links {
-  margin-bottom: 0.75rem;
-}
-
+.social-links { margin-bottom: 0.75rem; }
 .social-links a {
   display: inline-flex;
   align-items: center;
@@ -392,13 +294,11 @@ a { color: inherit; }
   text-decoration: none;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
-
 .social-links a:hover {
   color: var(--white);
   border-color: var(--line-bright);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
-
 .footer-copy {
   color: var(--gray-2);
   font-size: 0.75rem;
@@ -414,7 +314,6 @@ a { color: inherit; }
   transform: translateY(24px);
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
-
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
@@ -424,18 +323,13 @@ a { color: inherit; }
    10. RESPONSIVE
    ========================================================= */
 @media (max-width: 576px) {
-  .avatar-ring {
-    width: 140px;
-    height: 140px;
-  }
-
-  .nav-links a { 
-    margin-left: 1rem; 
-    font-size: 0.7rem; 
-  }
+  .avatar-ring { width: 140px; height: 140px; }
+  .nav-links a { margin-left: 1rem; font-size: 0.7rem; }
 }
 
-/* Panel Header */
+/* =========================================================
+   11. PANEL COMPONENTS
+   ========================================================= */
 .panel-header {
   display: flex;
   justify-content: space-between;
@@ -444,7 +338,6 @@ a { color: inherit; }
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
-
 .panel-status-dot {
   width: 8px;
   height: 8px;
@@ -454,132 +347,73 @@ a { color: inherit; }
   box-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
   animation: pulse 2s infinite;
 }
-
 @keyframes pulse {
   0% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
   100% { opacity: 1; transform: scale(1); }
 }
-
-.panel-body {
-  flex: 1;
-}
-
-/* Stat Items */
+.panel-body { flex: 1; }
 .stat-number {
   font-size: 22px;
   font-weight: 700;
   color: var(--violet);
   font-family: var(--font);
 }
-
 .stat-label {
   font-size: 8px;
   color: var(--gray-2);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
-/* Activity Items */
-.activity-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.activity-item:last-child {
-  border-bottom: none;
-}
-
-.activity-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-  flex-shrink: 0;
-}
-
-.activity-text {
-  flex: 1;
-  font-size: 12px;
-  color: var(--gray-1);
-}
-
-.activity-time {
-  font-size: 10px;
-  color: var(--gray-2);
-}
-
-/* Fix panel padding for chart containers */
-.hud-panel .panel-body.p-0 {
-  padding: 0 !important;
-}
-
-/* Ensure charts fit properly */
+.hud-panel .panel-body.p-0 { padding: 0 !important; }
 .hud-panel canvas {
   width: 100% !important;
   height: 100% !important;
 }
 
 /* =========================================================
-   11. GITHUB-STYLE GROUPED ACTIVITY FEED
-   Mirrors GitHub's own contribution timeline: a vertical rail
-   connecting icon "nodes", each node expanding into a title
-   plus one row per repo (with a green commit bar), or a repo
-   creation / discussion row.
+   12. ACTIVITY FEED
    ========================================================= */
-
 .gh-activity-list {
   position: relative;
-  padding-left: 34px;
+  padding-left: 30px;
 }
-
-/* the vertical connecting rail behind the icons */
 .gh-activity-list::before {
   content: '';
   position: absolute;
-  left: 13px;
+  left: 11px;
   top: 6px;
   bottom: 6px;
   width: 1px;
   background: var(--line);
 }
-
 .gh-activity-group {
   position: relative;
   display: flex;
   gap: 12px;
   padding-bottom: 18px;
 }
-
-.gh-activity-group:last-child {
-  padding-bottom: 0;
-}
-
+.gh-activity-group:last-child { padding-bottom: 0; }
 .gh-activity-icon {
   position: absolute;
-  left: -34px;
+  left: -30px;
   top: 0;
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: var(--black);
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: var(--gray-1);
   flex-shrink: 0;
 }
-
 .gh-activity-content {
   flex: 1;
   min-width: 0;
 }
-
 .gh-activity-title {
   color: var(--white);
   font-size: 0.78rem;
@@ -591,7 +425,6 @@ a { color: inherit; }
   align-items: baseline;
   gap: 8px;
 }
-
 .gh-activity-when {
   color: var(--gray-2);
   font-size: 0.66rem;
@@ -599,8 +432,6 @@ a { color: inherit; }
   white-space: nowrap;
   flex-shrink: 0;
 }
-
-/* One row per repo inside a push group */
 .gh-repo-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -608,11 +439,7 @@ a { color: inherit; }
   gap: 2px 10px;
   padding: 4px 0;
 }
-
-.gh-repo-row--simple {
-  grid-template-columns: 1fr auto;
-}
-
+.gh-repo-row--simple { grid-template-columns: 1fr auto; }
 .gh-repo-link {
   grid-column: 1;
   color: var(--cyan);
@@ -622,18 +449,13 @@ a { color: inherit; }
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.gh-repo-link:hover {
-  text-decoration: underline;
-}
-
+.gh-repo-link:hover { text-decoration: underline; }
 .gh-commit-count {
   grid-column: 2;
   color: var(--gray-2);
   font-size: 0.68rem;
   white-space: nowrap;
 }
-
 .gh-bar-track {
   grid-column: 1 / -1;
   height: 6px;
@@ -642,14 +464,12 @@ a { color: inherit; }
   overflow: hidden;
   margin-top: 2px;
 }
-
 .gh-bar-fill {
   height: 100%;
   border-radius: 4px;
   background: #34d399;
   box-shadow: 0 0 6px rgba(52, 211, 153, 0.4);
 }
-
 .gh-activity-date {
   grid-column: 2;
   color: var(--gray-2);
@@ -657,40 +477,6 @@ a { color: inherit; }
   white-space: nowrap;
   justify-self: end;
 }
-
-.gh-lang {
-  grid-column: 2;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--gray-2);
-  font-size: 0.68rem;
-  justify-self: end;
-  margin-right: 10px;
-}
-
-.gh-repo-row--simple .gh-lang + .gh-activity-date {
-  grid-column: 3;
-}
-
-.gh-repo-row--simple {
-  grid-template-columns: 1fr auto auto;
-}
-
-.gh-lang-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.gh-discussion-title {
-  grid-column: 1 / -1;
-  color: var(--gray-1);
-  font-size: 0.72rem;
-  margin: 4px 0 0;
-}
-
 .activity-empty {
   color: var(--gray-2);
   font-size: 0.8rem;
