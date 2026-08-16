@@ -27,26 +27,26 @@
   <div class="hud-scanline" aria-hidden="true"></div>
 
   <!-- Header -->
-  <header class="site-header">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a href="#" class="brand">
-        <i class="bi bi-terminal me-2"></i>Solomon Chua<span class="cursor">_</span>
-      </a>
-      <nav class="nav-links">
-        <a href="./main.html">Main</a>
-        <a href="./roblox.html">Roblox</a>
-        <a href="./youtube.html">Youtube</a>
-        <a href="./books.html">Books</a>
-      </nav>
-    </div>
-  </header>
-
+ <header class="site-header sticky-top" style="position: sticky; top: 0; z-index: 1030; background-color: rgba(13, 17, 23, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line, #21262d);">
+  <div class="container d-flex justify-content-between align-items-center py-2">
+    <a href="#" class="brand">
+      <i class="bi bi-terminal me-2"></i>Solomon Chua<span class="cursor">_</span>
+    </a>
+    <nav class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./roblox.html">Roblox</a>
+      <a href="./books.html">Books</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./hobbies.html">Hobbies</a>
+    </nav>
+  </div>
+</header>
   <!-- Profile Section -->
   <section class="container profile-section reveal">
     <div class="row align-items-center g-4">
       <div class="col-12 col-sm-4 col-md-3 text-center">
         <div class="avatar-ring border border-3 border-primary rounded-circle p-1 mx-auto">
-          <img src="./imgs/profile.png" 
+          <img src="./imgs/i-profile.png" 
             alt="Profile picture of Solomon Chua" 
             class="img-fluid rounded-circle"
             style="width: 100%; height: 100%; object-fit: cover;">
@@ -170,70 +170,323 @@
           </div>
           <div class="panel-body">
             <ul class="goals-list">
+
+              <!-- Goal 1 (80% = 8 active blocks) -->
               <li class="goals-item">
                 <i class="bi bi-book"></i>
                 <div class="goals-content">
                   <span>Read 45 books</span>
-                  <div class="goals-bar"><div class="goals-fill" style="width:80%"></div></div>
-                  <span class="goals-pct">36/45 · 40%</span>
+                  <div class="goals-bar-segmented">
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                  </div>
+                  <span class="goals-pct">36/45 · 80%</span>
                 </div>
               </li>
+
+              <!-- Goal 2 (20% = 2 active blocks) -->
               <li class="goals-item">
                 <i class="bi bi-briefcase"></i>
                 <div class="goals-content">
                   <span>Build this portfolio</span>
-                  <div class="goals-bar"><div class="goals-fill" style="width:20%"></div></div>
+                  <div class="goals-bar-segmented">
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                  </div>
                   <span class="goals-pct">20%</span>
                 </div>
               </li>
+
+              <!-- Goal 3 (33% = ~3 active blocks) -->
               <li class="goals-item">
                 <i class="bi bi-airplane"></i>
                 <div class="goals-content">
                   <span>Travel to 6 countries</span>
-                  <div class="goals-bar"><div class="goals-fill" style="width:33%"></div></div>
+                  <div class="goals-bar-segmented">
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment active"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                    <div class="goals-segment"></div>
+                  </div>
                   <span class="goals-pct">2/6 · 33%</span>
                 </div>
               </li>
+
             </ul>
           </div>
         </div>
       </div>
 
+      <div class="container mt-4">
+        <div class="row g-4">
+          
+          <!-- Clothing Brand Panel -->
+          <div class="col-12 col-md-4">
+            <div class="hud-panel panel-pink h-100 d-flex flex-column gap-2">
+              <span class="panel-title d-block mb-1">Impacts</span>
+
+              <!-- First GitHub-style Mini Card -->
+              <a href="https://instagram.com/__Solocali__" target="_blank" class="text-decoration-none">
+                <div class="p-2" 
+                    style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.borderColor='var(--pink, #ec4899)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <div class="d-flex align-items-center gap-1">
+                      <i class="bi bi-instagram" style="color: var(--pink, #ec4899); font-size: 0.85rem;"></i>
+                      <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">__Solocali__</span>
+                    </div>
+                    <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.6rem;">Calisthenics</span>
+                  </div>
+                  <p class="m-0 text-start" style="font-size: 0.725rem; color: var(--gray-1, #8b949e); line-height: 1.3;">
+                    My instagram account posting contents showcasing my calisthenics skills and progress, inspiring the youths to start doing calisthenics!
+                  </p>
+                </div>
+              </a>
+
+              <!-- Second GitHub-style Mini Card Placeholder -->
+              <a href="https://www.instagram.com/clovercalisthenic/" target="_blank" class="text-decoration-none">
+                <div class="p-2" 
+                    style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.borderColor='var(--pink, #ec4899)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <div class="d-flex align-items-center gap-1">
+                      <i class="bi bi-shop" style="color: var(--pink, #ec4899); font-size: 0.85rem;"></i>
+                      <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">Clovercali Store</span>
+                    </div>
+                    <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.6rem;">Clothing Brand</span>
+                  </div>
+                  <p class="m-0 text-start" style="font-size: 0.725rem; color: var(--gray-1, #8b949e); line-height: 1.3;">
+                    My own clothing brand created by me and my friend, to inspire the younger generations to start doing calisthenics in Singapore!
+                  </p>
+                </div>
+              </a>
+              
+              <div class="row g-2 mt-2">
+                <div class="col-6">
+                  <a href="https://www.instagram.com/solomonreadsbooks/" target="_blank" class="text-decoration-none">
+                    <div class="p-2" 
+                        style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                        onmouseover="this.style.borderColor='var(--pink, #ec4899)'; this.style.transform='translateY(-2px)';"
+                        onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <i class="bi bi-book-fill" style="color: var(--pink, #ec4899); font-size: 0.75rem;"></i>
+                        <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.55rem;">Books</span>
+                      </div>
+                      <span class="fw-bold d-block text-truncate" style="color: var(--white, #f0f6fc); font-size: 0.75rem;">Book Reviews</span>
+                      <p class="m-0 text-start text-truncate" style="font-size: 0.65rem; color: var(--gray-1, #8b949e);"></p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-6">
+                  <a href="https://www.instagram.com/solomonmotivates/" target="_blank" class="text-decoration-none">
+                    <div class="p-2" 
+                        style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                        onmouseover="this.style.borderColor='var(--pink, #ec4899)'; this.style.transform='translateY(-2px)';"
+                        onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <i class="bi bi-fire" style="color: var(--pink, #ec4899); font-size: 0.75rem;"></i>
+                        <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.55rem;">Inspirer</span>
+                      </div>
+                      <span class="fw-bold d-block text-truncate" style="color: var(--white, #f0f6fc); font-size: 0.75rem;">Motivational</span>
+                      <p class="m-0 text-start text-truncate" style="font-size: 0.65rem; color: var(--gray-1, #8b949e);"></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Skills Panel -->
+          <div class="col-12 col-md-4">
+            <div class="hud-panel panel-orange h-100">
+              <span class="panel-title d-block mb-3">Skills</span>
+              
+              <!-- Hard Skills -->
+              <div class="mb-3">
+                  <small class="text-uppercase fw-bold d-block mb-2" style="color: var(--pink, #ec4899); font-size: 0.7rem; letter-spacing: 0.1em;">Hard Skills</small>                 <div class="d-flex flex-wrap gap-2">
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Python</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">JavaScript</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">HTML</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Chatbots</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">ML</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">AI</span>
+                </div>
+              </div>
+
+              <!-- Soft Skills -->
+              <div class="mb-3">
+                <small class="text-uppercase fw-bold d-block mb-2" style="color: var(--blue, #3b82f6); font-size: 0.7rem; letter-spacing: 0.1em;">Soft Skills</small>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--blue, #3b82f6);">Communication</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--blue, #3b82f6);">Problem Solving</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--blue, #3b82f6);">Teamwork</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--blue, #3b82f6);">Adaptability</span>
+                </div>
+              </div>
+
+              <!-- Calisthenics Skills -->
+              <div class="mb-3">
+                <small class="text-uppercase fw-bold d-block mb-2" style="color: var(--yellow, #fff701); font-size: 0.7rem; letter-spacing: 0.1em;">Calisthenics Skills</small>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">Front lever</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">Straddle Planche</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">Muscle Up</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">Handstand</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">Back lever</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--yellow, #fff701);">L sit</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Work Experience Panel -->
+          <div class="col-12 col-md-4">
+            <div class="hud-panel panel-yellow h-100 d-flex flex-column gap-2">
+              <span class="panel-title d-block mb-1">Work Experience</span>
+
+              <!-- CDAC Card -->
+              <a href="#" target="_blank" class="text-decoration-none">
+                <div class="p-2" 
+                    style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.borderColor='var(--yellow, #eab308)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <div class="d-flex align-items-center gap-1">
+                      <i class="bi bi-laptop" style="color: var(--yellow, #eab308); font-size: 0.85rem;"></i>
+                      <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">CDAC — Internship</span>
+                    </div>
+                    <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.6rem;">Data & Web</span>
+                  </div>
+                  <p class="m-0 text-start" style="font-size: 0.725rem; color: var(--gray-1, #8b949e); line-height: 1.3;">
+                    Developed an integrated website chatbot and built custom Python and HTML dashboards to present key data analytics.
+                  </p>
+                </div>
+              </a>
+
+              <!-- Shopee Card -->
+              <a href="#" target="_blank" class="text-decoration-none">
+                <div class="p-2" 
+                    style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px); transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.borderColor='var(--yellow, #eab308)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.transform='translateY(0)';">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <div class="d-flex align-items-center gap-1">
+                      <i class="bi bi-box-seam" style="color: var(--yellow, #eab308); font-size: 0.85rem;"></i>
+                      <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">Warehouse Assistant</span>
+                    </div>
+                    <span class="badge rounded-pill" style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); font-size: 0.6rem;">Shopee</span>
+                  </div>
+                  <p class="m-0 text-start" style="font-size: 0.725rem; color: var(--gray-1, #8b949e); line-height: 1.3;">
+                    Managed pick & pack operations, stock replenishment, pallet organization, and product standardization to maintain warehouse efficiency.
+                  </p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  
     </div>
   </section>
 
+  
   <!-- Cards Section -->
-  <section id="projects" class="container cards-section reveal">
-    <div class="row g-4">
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="hud-card hud-card--cyan">
+ <section id="projects" class="container cards-section reveal">
+  <div class="row g-4">
+    <!-- Roblox Card -->
+    <div class="col-6 col-sm-6 col-lg-3">
+      <a href="roblox.html" target="_blank" class="text-decoration-none d-block h-100">
+        <div class="hud-card hud-card--cyan h-100" 
+             style="transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;"
+             onmouseover="this.style.transform='translateY(-4px)';"
+             onmouseout="this.style.transform='translateY(0)';">
+          <div class="hud-card-image mb-3" style="overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--line);">
+            <img src="imgs/i-roblox-img.jpg" class="img-fluid w-100" alt="Roblox Development" style="aspect-ratio: 16/9; object-fit: cover;">
+          </div>
           <h5 class="hud-card-title"><i class="bi bi-controller me-2"></i>Roblox</h5>
           <p class="hud-card-text">Game development and studio creations.</p>
         </div>
-      </div>
+      </a>
+    </div>
 
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="hud-card hud-card--violet">
+    <!-- Books Card -->
+    <div class="col-6 col-sm-6 col-lg-3">
+      <a href="books.html" target="_blank" class="text-decoration-none d-block h-100">
+        <div class="hud-card hud-card--violet h-100" 
+             style="transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;"
+             onmouseover="this.style.transform='translateY(-4px)';"
+             onmouseout="this.style.transform='translateY(0)';">
+          <div class="hud-card-image mb-3" style="overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--line);">
+            <img src="imgs/i-book-img.jpg" class="img-fluid w-100" alt="Books and AI Reads" style="aspect-ratio: 16/9; object-fit: cover;">
+          </div>
           <h5 class="hud-card-title"><i class="bi bi-book me-2"></i>Books</h5>
           <p class="hud-card-text">Tech, AI, and favorite reads.</p>
         </div>
-      </div>
+      </a>
+    </div>
 
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="hud-card hud-card--amber">
+    <!-- Projects Card -->
+    <div class="col-6 col-sm-6 col-lg-3">
+      <a href="projects.html" target="_blank" class="text-decoration-none d-block h-100">
+        <div class="hud-card hud-card--amber h-100" 
+             style="transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;"
+             onmouseover="this.style.transform='translateY(-4px)';"
+             onmouseout="this.style.transform='translateY(0)';">
+          <div class="hud-card-image mb-3" style="overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--line);">
+            <img src="imgs/i-project-img.jpg" class="img-fluid w-100" alt="Data Analytics Projects" style="aspect-ratio: 16/9; object-fit: cover;">
+          </div>
           <h5 class="hud-card-title"><i class="bi bi-code-slash me-2"></i>Projects</h5>
           <p class="hud-card-text">Data analytics &amp; AI experiments.</p>
         </div>
-      </div>
+      </a>
+    </div>
 
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="hud-card hud-card--pink">
+    <!-- Hobbies Card -->
+    <div class="col-6 col-sm-6 col-lg-3">
+      <a href="hobbies.html" target="_blank" class="text-decoration-none d-block h-100">
+        <div class="hud-card hud-card--pink h-100" 
+             style="transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;"
+             onmouseover="this.style.transform='translateY(-4px)';"
+             onmouseout="this.style.transform='translateY(0)';">
+          <div class="hud-card-image mb-3" style="overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--line);">
+            <img src="imgs/i-hobby-img.jpg" class="img-fluid w-100" alt="Personal Hobbies" style="aspect-ratio: 16/9; object-fit: cover;">
+          </div>
           <h5 class="hud-card-title"><i class="bi bi-heart me-2"></i>Hobbies</h5>
           <p class="hud-card-text">What I enjoy doing in my free time.</p>
         </div>
-      </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>  
 
   <!-- Footer -->
   <footer class="site-footer">
