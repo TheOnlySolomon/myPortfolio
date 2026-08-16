@@ -377,117 +377,46 @@ a { color: inherit; }
   height: 100% !important;
 }
 
-/* =========================================================
-   12. ACTIVITY FEED
-   ========================================================= */
-.gh-activity-list {
-  position: relative;
-  padding-left: 30px;
-}
-.gh-activity-list::before {
-  content: '';
-  position: absolute;
-  left: 11px;
-  top: 6px;
-  bottom: 6px;
-  width: 1px;
-  background: var(--line);
-}
-.gh-activity-group {
-  position: relative;
+.goals-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 12px;
-  padding-bottom: 18px;
+  flex-direction: column;
+  gap: 0.6rem;
 }
-.gh-activity-group:last-child { padding-bottom: 0; }
-.gh-activity-icon {
-  position: absolute;
-  left: -30px;
-  top: 0;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: var(--black);
-  border: 1px solid var(--line);
+.goals-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  color: var(--gray-1);
-  flex-shrink: 0;
-}
-.gh-activity-content {
-  flex: 1;
-  min-width: 0;
-}
-.gh-activity-title {
-  color: var(--white);
-  font-size: 0.78rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--gray-1, #d1d5db);
   line-height: 1.4;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
 }
-.gh-activity-when {
-  color: var(--gray-2);
-  font-size: 0.66rem;
-  font-weight: 400;
-  white-space: nowrap;
+.goals-item i {
+  color: var(--orange-hover, #f39c4a);
+  margin-top: 0.15rem;
   flex-shrink: 0;
 }
-.gh-repo-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2px 10px;
-  padding: 4px 0;
-}
-.gh-repo-row--simple { grid-template-columns: 1fr auto; }
-.gh-repo-link {
-  grid-column: 1;
-  color: var(--cyan);
-  text-decoration: none;
-  font-size: 0.72rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.gh-repo-link:hover { text-decoration: underline; }
-.gh-commit-count {
-  grid-column: 2;
-  color: var(--gray-2);
-  font-size: 0.68rem;
-  white-space: nowrap;
-}
-.gh-bar-track {
-  grid-column: 1 / -1;
-  height: 6px;
+.goals-content { flex: 1; min-width: 0; }
+.goals-bar {
+  height: 5px;
   border-radius: 4px;
-  background: var(--line);
+  background: rgba(255,255,255,0.08);
+  margin: 0.3rem 0 0.2rem;
   overflow: hidden;
-  margin-top: 2px;
 }
-.gh-bar-fill {
+.goals-fill {
   height: 100%;
   border-radius: 4px;
-  background: #34d399;
-  box-shadow: 0 0 6px rgba(52, 211, 153, 0.4);
+  background: var(--orange-hover, #f39c4a);
 }
-.gh-activity-date {
-  grid-column: 2;
-  color: var(--gray-2);
+.goals-pct {
   font-size: 0.68rem;
-  white-space: nowrap;
-  justify-self: end;
+  color: var(--gray-2, #8892a6);
 }
-.activity-empty {
-  color: var(--gray-2);
-  font-size: 0.8rem;
-  padding: 0.5rem 0;
-}.repo-list {
+
+.repo-list {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;

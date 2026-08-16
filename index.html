@@ -63,7 +63,7 @@
 
   <!-- Timeline Section -->
   <section id="about" class="container timeline-section reveal">
-    <div class="row justify-content-center g-3"> 
+    <div class="row justify-content-center g-3 align-items-start">
 
       <!-- LEFT SIDE (2 Panels -> Purple) -->
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
@@ -118,7 +118,7 @@
       
       <!-- CENTER (Timeline -> Yellow) -->
       <div class="col-12 col-md-6">
-        <div class="hud-panel panel-yellow h-100">
+        <div class="hud-panel panel-yellow">
           <h5 class="panel-title"><i class="bi bi-clock-history me-2"></i>Achievements</h5>
           <ul class="timeline">
           <li>
@@ -151,7 +151,7 @@
 
       <!-- RIGHT SIDE (3 Panels -> Orange) -->
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
-        <div class="hud-panel panel-orange flex-fill">
+        <div class="hud-panel panel-orange">
             <div class="panel-header">
                 <span class="panel-title">MY PROJECTS</span>
                 <span class="panel-status-dot online"></span>
@@ -164,32 +164,37 @@
         </div>
  
 
-        <div class="hud-panel panel-orange flex-fill" style="min-height: 200px;">
+        <div class="hud-panel panel-orange">
           <div class="panel-header">
-            <span class="panel-title">WEEKLY ACTIVITY</span>
-          </div>
-          <div class="activity-list" id="githubActivity">
-            <div class="activity-loading">Loading activity...</div>
-          </div>
-        </div>
-
-        <div class="hud-panel panel-orange flex-fill">
-          <div class="panel-header">
-            <span class="panel-title">QUICK LINKS</span>
+            <span class="panel-title">Goals this year</span>
           </div>
           <div class="panel-body">
-            <div class="quick-link-item">
-              <i class="bi bi-github"></i>
-              <span>GitHub Profile</span>
-            </div>
-            <div class="quick-link-item">
-              <i class="bi bi-linkedin"></i>
-              <span>LinkedIn</span>
-            </div>
-            <div class="quick-link-item">
-              <i class="bi bi-envelope"></i>
-              <span>Email Me</span>
-            </div>
+            <ul class="goals-list">
+              <li class="goals-item">
+                <i class="bi bi-book"></i>
+                <div class="goals-content">
+                  <span>Read 45 books</span>
+                  <div class="goals-bar"><div class="goals-fill" style="width:80%"></div></div>
+                  <span class="goals-pct">36/45 · 40%</span>
+                </div>
+              </li>
+              <li class="goals-item">
+                <i class="bi bi-briefcase"></i>
+                <div class="goals-content">
+                  <span>Build this portfolio</span>
+                  <div class="goals-bar"><div class="goals-fill" style="width:20%"></div></div>
+                  <span class="goals-pct">20%</span>
+                </div>
+              </li>
+              <li class="goals-item">
+                <i class="bi bi-airplane"></i>
+                <div class="goals-content">
+                  <span>Travel to 6 countries</span>
+                  <div class="goals-bar"><div class="goals-fill" style="width:33%"></div></div>
+                  <span class="goals-pct">2/6 · 33%</span>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
