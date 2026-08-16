@@ -13,7 +13,7 @@ const FALLBACK_STATS = {
 };
 
 async function fetchRobloxStats() {
-  const proxy = "https://corsproxy.io/?url=";
+  const proxy = "/api/roblox?url=";
   const now = Date.now();
 
   const cachedData = localStorage.getItem(CACHE_KEY);
@@ -130,31 +130,16 @@ function applyStatsToDOM(stats) {
   }
 }
 
-// Ordered list of CORS proxies to try. corsproxy.io changed its API to
-// require a "?url=" prefix (the old "?<encoded-url>" format now returns
-// nothing usable), and free-tier proxies occasionally rate-limit or go
-// down, so we fall back through a couple of alternatives before giving up.
-const CORS_PROXIES = [
-  (target) => `https://corsproxy.io/?url=${encodeURIComponent(target)}`,
-  (target) => `https://api.allorigins.win/raw?url=${encodeURIComponent(target)}`,
-  (target) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(target)}`
-];
-
+// Fetches Roblox data through our own Vercel serverless function
+// (/api/roblox.js), which proxies server-to-server. This avoids the CORS
+// and free-tier origin restrictions that come with public CORS proxies.
 async function fetchViaProxies(targetUrl, options = {}) {
-  let lastError;
-  for (const buildProxyUrl of CORS_PROXIES) {
-    try {
-      const response = await fetch(buildProxyUrl(targetUrl), options);
-      if (!response.ok) {
-        lastError = new Error(`Status ${response.status}`);
-        continue;
-      }
-      return await response.json();
-    } catch (err) {
-      lastError = err;
-    }
+  const proxyUrl = `/api/roblox?url=${encodeURIComponent(targetUrl)}`;
+  const response = await fetch(proxyUrl, options);
+  if (!response.ok) {
+    throw new Error(`Status ${response.status}`);
   }
-  throw lastError || new Error("All proxies failed");
+  return await response.json();
 }
 
 function showThumbnailFallback(imgElements) {
