@@ -504,9 +504,6 @@ async function initProjectsList() {
 
     container.innerHTML = projectRepos.map(repo => {
       const langColor = LANGUAGE_COLORS[repo.language] || '#8892a6';
-      const description = repo.description
-        ? escapeHtml(repo.description)
-        : 'No description provided.';
 
       return `
         <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
@@ -515,7 +512,6 @@ async function initProjectsList() {
             <span class="repo-card-name">${escapeHtml(repo.name)}</span>
             <span class="repo-card-badge">Public</span>
           </div>
-          <p class="repo-card-desc">${description}</p>
           <div class="repo-card-footer">
             ${repo.language ? `<span><span class="repo-lang-dot" style="background:${langColor}"></span>${escapeHtml(repo.language)}</span>` : ''}
             <span><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
