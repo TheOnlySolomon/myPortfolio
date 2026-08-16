@@ -266,7 +266,7 @@ async function initLanguageChart() {
 
   try {
     const username = 'TheOnlySolomon';
-    const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+    const response = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(`users/${username}/repos?per_page=100`)}`);
     if (!response.ok) throw new Error('Failed to fetch repos');
     
     const repos = await response.json();
@@ -275,7 +275,8 @@ async function initLanguageChart() {
     const languageMap = {};
     
     for (const repo of projectRepos) {
-      const langResponse = await fetch(repo.languages_url);
+      const langPath = new URL(repo.languages_url).pathname.slice(1);
+      const langResponse = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(langPath)}`);
       if (langResponse.ok) {
         const langData = await langResponse.json();
         for (const [lang, bytes] of Object.entries(langData)) {
@@ -464,8 +465,77 @@ document.addEventListener('DOMContentLoaded', function() {
   initContributionChart();
   initLanguageChart();
   displayGitHubActivity();
+  initProjectsList();
   console.log('🚀 Dashboard initialized');
 });
+
+
+// =========================================================
+// MY PROJECTS - LIVE PUBLIC REPO LIST (no hardcoded repos)
+// =========================================================
+const LANGUAGE_COLORS = {
+  'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'HTML': '#e34c26',
+  'CSS': '#563d7c', 'Python': '#3572A5', 'Java': '#b07219',
+  'Go': '#00ADD8', 'Rust': '#dea584', 'C++': '#f34b7d',
+  'C#': '#178600', 'PHP': '#4F5D95', 'Ruby': '#701516',
+  'Shell': '#89e051', 'Jupyter Notebook': '#DA5B0B'
+};
+
+async function initProjectsList() {
+  const container = document.getElementById('repoList');
+  if (!container) return;
+
+  try {
+    const username = 'TheOnlySolomon';
+    const response = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(`users/${username}/repos?sort=updated&per_page=100`)}`);
+    if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+
+    const repos = await response.json();
+
+    // Only real, non-fork public repos - pulled live, nothing hardcoded
+    const projectRepos = repos
+      .filter(repo => !repo.fork && !repo.private)
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+    if (projectRepos.length === 0) {
+      container.innerHTML = '<p class="repo-error">No public repositories found.</p>';
+      return;
+    }
+
+    container.innerHTML = projectRepos.map(repo => {
+      const langColor = LANGUAGE_COLORS[repo.language] || '#8892a6';
+      const description = repo.description
+        ? escapeHtml(repo.description)
+        : 'No description provided.';
+
+      return `
+        <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
+          <div class="repo-card-header">
+            <i class="bi bi-book"></i>
+            <span class="repo-card-name">${escapeHtml(repo.name)}</span>
+            <span class="repo-card-badge">Public</span>
+          </div>
+          <p class="repo-card-desc">${description}</p>
+          <div class="repo-card-footer">
+            ${repo.language ? `<span><span class="repo-lang-dot" style="background:${langColor}"></span>${escapeHtml(repo.language)}</span>` : ''}
+            <span><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+  } catch (error) {
+    console.error('Error fetching repositories:', error);
+    container.innerHTML = '<p class="repo-error">Unable to load repositories right now.</p>';
+  }
+}
+
+// Basic HTML escaping since repo names/descriptions come from an external API
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
 
 
 // =========================================================
@@ -478,7 +548,7 @@ async function displayGitHubActivity() {
   container.innerHTML = `<div class="activity-loading">● Fetching live data...</div>`;
 
   try {
-    const response = await fetch('https://api.github.com/users/TheOnlySolomon/events/public?per_page=30');
+    const response = await fetch(`/api/github-rest?endpoint=${encodeURIComponent('users/TheOnlySolomon/events/public?per_page=30')}`);
     const events = await response.json();
 
     const groups = groupGitHubEvents(events);
@@ -590,71 +660,4 @@ function getTimeAgo(date) {
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
   return `${Math.floor(seconds / 86400)}d ago`;
-}
-
-// =========================================================
-// MY PROJECTS - LIVE PUBLIC REPO LIST (no hardcoded repos)
-// =========================================================
-const LANGUAGE_COLORS = {
-  'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'HTML': '#e34c26',
-  'CSS': '#563d7c', 'Python': '#3572A5', 'Java': '#b07219',
-  'Go': '#00ADD8', 'Rust': '#dea584', 'C++': '#f34b7d',
-  'C#': '#178600', 'PHP': '#4F5D95', 'Ruby': '#701516',
-  'Shell': '#89e051', 'Jupyter Notebook': '#DA5B0B'
-};
-
-async function initProjectsList() {
-  const container = document.getElementById('repoList');
-  if (!container) return;
-
-  try {
-    const username = 'TheOnlySolomon';
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-    if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
-
-    const repos = await response.json();
-
-    // Only real, non-fork public repos - pulled live, nothing hardcoded
-    const projectRepos = repos
-      .filter(repo => !repo.fork && !repo.private)
-      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-
-    if (projectRepos.length === 0) {
-      container.innerHTML = '<p class="repo-error">No public repositories found.</p>';
-      return;
-    }
-
-    container.innerHTML = projectRepos.map(repo => {
-      const langColor = LANGUAGE_COLORS[repo.language] || '#8892a6';
-      const description = repo.description
-        ? escapeHtml(repo.description)
-        : 'No description provided.';
-
-      return `
-        <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
-          <div class="repo-card-header">
-            <i class="bi bi-book"></i>
-            <span class="repo-card-name">${escapeHtml(repo.name)}</span>
-            <span class="repo-card-badge">Public</span>
-          </div>
-          <p class="repo-card-desc">${description}</p>
-          <div class="repo-card-footer">
-            ${repo.language ? `<span><span class="repo-lang-dot" style="background:${langColor}"></span>${escapeHtml(repo.language)}</span>` : ''}
-            <span><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
-          </div>
-        </a>
-      `;
-    }).join('');
-
-  } catch (error) {
-    console.error('Error fetching repositories:', error);
-    container.innerHTML = '<p class="repo-error">Unable to load repositories right now.</p>';
-  }
-}
-
-// Basic HTML escaping since repo names/descriptions come from an external API
-function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
 }
