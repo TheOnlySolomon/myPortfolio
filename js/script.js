@@ -531,3 +531,24 @@ function escapeHtml(str) {
   div.textContent = str;
   return div.innerHTML;
 }
+
+function setSingaporeGreeting() {
+  const greetingEl = document.getElementById('time-greeting');
+  if (!greetingEl) return;
+
+  // Get current time specifically in Singapore (UTC+8)
+  const options = { timeZone: 'Asia/Singapore', hour: 'numeric', hour12: false };
+  const sgHour = parseInt(new Intl.DateTimeFormat([], options).format(new Date()), 10);
+
+  let greeting = 'Good Morning!';
+  if (sgHour >= 12 && sgHour < 18) {
+    greeting = 'Good Afternoon!';
+  } else if (sgHour >= 18 || sgHour < 5) {
+    greeting = 'Good Evening!';
+  }
+
+  greetingEl.textContent = greeting;
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', setSingaporeGreeting);

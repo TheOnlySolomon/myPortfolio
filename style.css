@@ -543,3 +543,105 @@ a { color: inherit; }
     left: 100%;
   }
 }
+
+/* Active Page Nav Link Highlight */
+.nav-links a.active {
+  color: var(--cyan, #38bdf8) !important; /* Blue/Cyan color */
+  font-size: 1.05rem; /* Slightly larger size */
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.7), 
+               0 0 20px rgba(56, 189, 248, 0.4); /* Blue glow effect */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Blue glowing text for name */
+.text-cyan {
+  color: var(--cyan, #38bdf8);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+/* Greeting Title: Larger font with warm gradient fill */
+.greeting-title {
+  font-size: 1.75rem; /* Noticeably larger than the fs-5 (1.25rem) name text below */
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #f0f6fc 30%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Blue glowing text for name */
+.text-cyan {
+  color: var(--cyan, #38bdf8);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+/* Styling to enlarge and highlight key terms */
+.highlight-text {
+  font-size: 1.2rem; /* Noticeably larger font size */
+  font-weight: 700;
+  color: #ffffff; /* Bright white color so it stands out */
+}
+
+/* Default fallback for the CSS variable */
+.status-panel {
+  --status-theme: #6c757d;
+  transition: all 0.3s ease;
+}
+
+.status-panel:hover {
+  border-color: var(--status-theme) !important;
+  box-shadow: 0 0 15px var(--status-theme) !important;
+}
+
+/* Base card transition */
+.hud-panel {
+  transition: all 0.3s ease;
+}
+
+/* Define distinct theme colors for each card */
+.hud-joined { --card-theme: #0dcaf0; }    /* Cyan */
+.hud-badges { --card-theme: #0d6efd; }    /* Blue */
+.hud-friends { --card-theme: #20c997; }   /* Teal */
+.hud-followers { --card-theme: #a855f7; } /* Purple */
+.hud-favorites { --card-theme: #ff4d6d; } /* Pink/Red */
+
+/* Generic hover rule applying the card's specific theme */
+.hud-joined:hover,
+.hud-badges:hover,
+.hud-friends:hover,
+.hud-followers:hover,
+.hud-favorites:hover {
+  border-color: var(--card-theme) !important;
+  box-shadow: 0 0 15px var(--card-theme) !important;
+}
+
+/* Status panel relies on JS to dynamically set --status-theme */
+.status-panel:hover {
+  border-color: var(--status-theme, #6c757d) !important;
+  box-shadow: 0 0 15px var(--status-theme, #6c757d) !important;
+}
+
+/* Make all stat numbers pure, bright white with a subtle glow */
+.hud-panel strong {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Base style for icons to pop */
+.hud-panel i {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hud-panel:hover i {
+  transform: scale(1.1);
+}
+
+/* Custom Icon Colors to match card themes */
+.hud-joined i { color: #0dcaf0 !important; }    /* Cyan */
+.hud-badges i { color: #0d6efd !important; }    /* Primary Blue */
+.hud-friends i { color: #20c997 !important; }   /* Teal/Green */
+.hud-followers i { color: #a855f7 !important; } /* Purple */
+.hud-favorites i { color: #ff4d6d !important; } /* Heart Pink/Red */
