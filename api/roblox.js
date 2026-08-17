@@ -8,6 +8,7 @@ const ALLOWED_HOSTS = new Set([
   "friends.roblox.com",
   "presence.roblox.com",
   "games.roblox.com",
+  "groups.roblox.com",
   "thumbnails.roblox.com"
 ]);
 

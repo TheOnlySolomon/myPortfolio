@@ -186,7 +186,72 @@ async function fetchGameThumbnails() {
   }
 }
 
+// Fetches group name/description/member count + icon for each
+// data-group-id card in #groups-container, via the same server-side proxy.
+async function fetchGroups() {
+  const cards = Array.from(document.querySelectorAll("[data-group-id]"));
+  if (cards.length === 0) return;
+
+  const ids = cards
+    .map(card => card.getAttribute("data-group-id"))
+    .filter(Boolean)
+    .join(",");
+
+  try {
+    const [groupsResult, iconsResult] = await Promise.all([
+      fetchViaProxies(`https://groups.roblox.com/v2/groups?groupIds=${ids}`),
+      fetchViaProxies(`https://thumbnails.roblox.com/v1/groups/icons?groupIds=${ids}&size=150x150&format=Png&isCircular=false`)
+    ]);
+
+    const groupData = (groupsResult && groupsResult.data) || [];
+    const iconData = (iconsResult && iconsResult.data) || [];
+
+    cards.forEach(card => {
+      const groupId = card.getAttribute("data-group-id");
+      const group = groupData.find(g => String(g.id) === groupId);
+      const icon = iconData.find(i => String(i.targetId) === groupId);
+
+      const nameEl = card.querySelector(".group-name");
+      const membersEl = card.querySelector(".group-members");
+      const descEl = card.querySelector(".group-description");
+      const iconEl = card.querySelector("[data-group-icon]");
+
+      if (group) {
+        if (nameEl) nameEl.textContent = group.name;
+        // v2 sometimes omits memberCount, so guard against undefined
+        if (membersEl) {
+          membersEl.textContent = typeof group.memberCount === "number"
+            ? `${group.memberCount.toLocaleString()} Members`
+            : "";
+        }
+        if (descEl) descEl.textContent = group.description || "";
+      } else {
+        if (nameEl) nameEl.textContent = "Unavailable";
+        if (membersEl) membersEl.textContent = "";
+      }
+
+      if (iconEl) {
+        if (icon && icon.imageUrl) {
+          iconEl.src = icon.imageUrl;
+          iconEl.alt = group ? group.name : "Group icon";
+        } else {
+          iconEl.style.display = "none";
+        }
+      }
+    });
+  } catch (err) {
+    console.warn("Failed to load group data:", err.message);
+    cards.forEach(card => {
+      const nameEl = card.querySelector(".group-name");
+      const membersEl = card.querySelector(".group-members");
+      if (nameEl) nameEl.textContent = "Unavailable";
+      if (membersEl) membersEl.textContent = "";
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchRobloxStats();
   fetchGameThumbnails();
+  fetchGroups();
 });
