@@ -379,6 +379,71 @@ a { color: inherit; }
   height: 100% !important;
 }
 
+/* ---- Group / Community cards: fixed icon size + safe text wrapping ---- */
+.group-card-body {
+  display: flex;
+  gap: 0.85rem;
+  min-width: 0; /* required so flex children can shrink instead of overflowing */
+}
+.group-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.group-text {
+  min-width: 0; /* prevents text from forcing the flex item wider than its parent */
+  flex: 1;
+}
+.group-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.35rem;
+}
+.group-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--gray-2);
+  line-height: 1.4;
+}
+.panel-header .group-members {
+  white-space: nowrap;
+  font-size: 0.75rem;
+  color: var(--gray-2);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+.panel-header .panel-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* ---- Live-data badge: reinforces that stats are fetched, not hardcoded ---- */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #34d399;
+  font-weight: 600;
+}
+.sync-timestamp {
+  font-size: 0.72rem;
+  color: var(--gray-2);
+  font-style: italic;
+}
+
 .goals-list {
   list-style: none;
   margin: 0;
