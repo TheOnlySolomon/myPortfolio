@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solomon Chua — Portfolio</title>
+  <title>Books — Solomon Chua</title>
 
   <!-- Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Bootstrap CSS (grid only — visuals are overridden in style.css) -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
   <!-- Style CSS -->
@@ -19,14 +19,14 @@
 </head>
 <body>
 
-  <!-- Background grid + scanline layer (purely decorative, sits behind everything) -->
+  <!-- Background grid + scanline layer -->
   <div class="hud-grid" aria-hidden="true"></div>
   <div class="hud-scanline" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header sticky-top" style="position: sticky; top: 0; z-index: 1030; background-color: rgba(13, 17, 23, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line, #21262d);">
     <div class="container d-flex justify-content-between align-items-center py-2">
-      <a href="#" class="brand">
+      <a href="./index.html" class="brand">
         <i class="bi bi-terminal me-2"></i>Solomon Chua<span class="cursor">_</span>
       </a>
       <nav class="nav-links">
@@ -38,6 +38,247 @@
       </nav>
     </div>
   </header>
+
+  <!-- Main Content -->
+  <main class="container my-5 py-4">
+
+    <!-- Page Title & General Description -->
+    <section class="mb-5 text-center">
+      <h1 class="display-4 fw-bold mb-3"><i class="bi bi-book me-2"></i>Reading Logs & Library</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 750px;">
+        Welcome to my personal bookshelf! Reading is one of my primary ways to deconstruct complex ideas, explore fictional worlds, and keep learning continuously. Explore my favorite genres, recent reads, and overall statistics below.
+      </p>
+    </section>
+
+    <!-- Section 1: Genres (4 Cards Row) -->
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-4 border-bottom pb-2">Favorite Genres</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <i class="bi bi-cpu fs-1 mb-3 text-primary"></i>
+              <h5 class="card-title fw-bold">Sci-Fi & Cyberpunk</h5>
+              <p class="card-text text-secondary">Futuristic worlds, AI ethics, dystopian societal developments, and technology-driven narratives.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <i class="bi bi-controller fs-1 mb-3 text-success"></i>
+              <h5 class="card-title fw-bold">LitRPG & GameLit</h5>
+              <p class="card-text text-secondary">Virtual reality mechanics, progression systems, and gamer-centric fiction blended with deep world-building.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <i class="bi bi-lightbulb fs-1 mb-3 text-warning"></i>
+              <h5 class="card-title fw-bold">Self-Improvement</h5>
+              <p class="card-text text-secondary">Books focused on habit building, focus optimization, mindset shifts, and peak productivity.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <i class="bi bi-code-slash fs-1 mb-3 text-info"></i>
+              <h5 class="card-title fw-bold">Tech & Software</h5>
+              <p class="card-text text-secondary">Architecture, clean coding practices, game design theory, and technology history.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Book Stat Cards (5 Cards Row) -->
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-4 border-bottom pb-2">Reading Tracker Stats</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
+            <div class="card-body">
+              <span class="fs-1 fw-bold text-primary" id="stat-total">0</span>
+              <h6 class="card-subtitle mt-2 text-secondary">Total Books Read</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
+            <div class="card-body">
+              <span class="fs-1 fw-bold text-info" id="stat-scifi">0</span>
+              <h6 class="card-subtitle mt-2 text-secondary">Sci-Fi / Cyberpunk</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
+            <div class="card-body">
+              <span class="fs-1 fw-bold text-success" id="stat-litrpg">0</span>
+              <h6 class="card-subtitle mt-2 text-secondary">LitRPG / Fantasy</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
+            <div class="card-body">
+              <span class="fs-1 fw-bold text-warning" id="stat-self">0</span>
+              <h6 class="card-subtitle mt-2 text-secondary">Self-Improvement</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
+            <div class="card-body">
+              <span class="fs-1 fw-bold text-danger" id="stat-tech">0</span>
+              <h6 class="card-subtitle mt-2 text-secondary">Tech & Programming</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Recent Reads (5 Cards Row) -->
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-2">Recently Completed Reads</h2>
+      <p class="text-secondary mb-4">Here are 5 of the most recent books I've picked up and completed across different subjects.</p>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-primary mb-2 w-auto align-self-start">Sci-Fi</span>
+              <h6 class="card-title fw-bold">Neuromancer</h6>
+              <p class="card-subtitle mb-2 text-secondary small">by William Gibson</p>
+              <p class="card-text small text-secondary flex-grow-1">A seminal classic that pioneered the cyberpunk subgenre.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-warning text-dark mb-2 w-auto align-self-start">Productivity</span>
+              <h6 class="card-title fw-bold">Atomic Habits</h6>
+              <p class="card-subtitle mb-2 text-secondary small">by James Clear</p>
+              <p class="card-text small text-secondary flex-grow-1">Practical systems for building good habits and breaking bad ones.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-danger mb-2 w-auto align-self-start">Tech</span>
+              <h6 class="card-title fw-bold">Clean Code</h6>
+              <p class="card-subtitle mb-2 text-secondary small">by Robert C. Martin</p>
+              <p class="card-text small text-secondary flex-grow-1">Core handbook on code craft, readability, and refactoring.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success mb-2 w-auto align-self-start">LitRPG</span>
+              <h6 class="card-title fw-bold">Dungeon Crawler Carl</h6>
+              <p class="card-subtitle mb-2 text-secondary small">by Matt Dinniman</p>
+              <p class="card-text small text-secondary flex-grow-1">Fast-paced, humorous LitRPG set inside an alien survival dungeon.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-info text-dark mb-2 w-auto align-self-start">Strategy</span>
+              <h6 class="card-title fw-bold">Deep Work</h6>
+              <p class="card-subtitle mb-2 text-secondary small">by Cal Newport</p>
+              <p class="card-text small text-secondary flex-grow-1">Rules for focused success in a distracted world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: All-Time Favorites (4 Cards Row) -->
+    <section class="mb-5">
+      <h2 class="h3 fw-bold mb-2">Favorite Reads (2024 – 2026)</h2>
+      <p class="text-secondary mb-4">A curated list of my top-tier, must-read books discovered during two years of dedicated reading.</p>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <div class="text-warning mb-2"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</div>
+              <h5 class="card-title fw-bold">Project Hail Mary</h5>
+              <p class="card-subtitle mb-2 text-secondary">Andy Weir</p>
+              <p class="card-text text-secondary small">An exhilarating science-backed interstellar survival mission.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <div class="text-warning mb-2"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</div>
+              <h5 class="card-title fw-bold">Show Your Work!</h5>
+              <p class="card-subtitle mb-2 text-secondary">Austin Kleon</p>
+              <p class="card-text text-secondary small">Inspiring guide on sharing creative processes openly online.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <div class="text-warning mb-2"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</div>
+              <h5 class="card-title fw-bold">Snow Crash</h5>
+              <p class="card-subtitle mb-2 text-secondary">Neal Stephenson</p>
+              <p class="card-text text-secondary small">Iconic fiction featuring virtual reality, cybernetics, and linguistical mystery.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body">
+              <div class="text-warning mb-2"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</div>
+              <h5 class="card-title fw-bold">The Pragmatic Programmer</h5>
+              <p class="card-subtitle mb-2 text-secondary">Andrew Hunt & David Thomas</p>
+              <p class="card-text text-secondary small">Timeless principles for effective modern software engineering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Connect / Social Cards (2 Cards Row) -->
+    <section class="mb-4">
+      <h2 class="h3 fw-bold mb-2">Want to Know More?</h2>
+      <p class="text-secondary mb-4">Follow along with my ongoing reading journey, code projects, and daily life updates.</p>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-instagram fs-1 me-3 text-danger"></i>
+              <div>
+                <h5 class="card-title fw-bold mb-1">Instagram</h5>
+                <p class="card-text text-secondary mb-2">Check out my story highlights, book reflections, and behind-the-scenes life.</p>
+                <a href="https://instagram.com/__Solocali__" target="_blank" class="btn btn-outline-light btn-sm">Follow @__Solocali__</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-dark text-light border-secondary">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-github fs-1 me-3 text-light"></i>
+              <div>
+                <h5 class="card-title fw-bold mb-1">GitHub Repository</h5>
+                <p class="card-text text-secondary mb-2">Explore the open-source codebases for my developer portfolio and projects.</p>
+                <a href="https://github.com/TheOnlySolomon" target="_blank" class="btn btn-outline-light btn-sm">View GitHub Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -54,6 +295,20 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script to load JSON stats dynamically -->
+  <script>
+    fetch('json/books.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('stat-total').textContent = data.total_books_read || 0;
+        document.getElementById('stat-scifi').textContent = data.categories.sci_fi || 0;
+        document.getElementById('stat-litrpg').textContent = data.categories.litrpg || 0;
+        document.getElementById('stat-self').textContent = data.categories.self_improvement || 0;
+        document.getElementById('stat-tech').textContent = data.categories.tech_programming || 0;
+      })
+      .catch(err => console.error('Error loading book stats from books.json:', err));
+  </script>
 
   <!-- Scroll-reveal script -->
   <script src="script.js"></script>

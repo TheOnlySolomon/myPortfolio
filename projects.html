@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solomon Chua — Portfolio</title>
+  <title>Solomon Chua — Projects</title>
 
   <!-- Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Bootstrap CSS (grid only — visuals are overridden in style.css) -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
   <!-- Style CSS -->
@@ -19,14 +19,14 @@
 </head>
 <body>
 
-  <!-- Background grid + scanline layer (purely decorative, sits behind everything) -->
+  <!-- Background grid + scanline layer -->
   <div class="hud-grid" aria-hidden="true"></div>
   <div class="hud-scanline" aria-hidden="true"></div>
 
   <!-- Header -->
   <header class="site-header sticky-top" style="position: sticky; top: 0; z-index: 1030; background-color: rgba(13, 17, 23, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line, #21262d);">
     <div class="container d-flex justify-content-between align-items-center py-2">
-      <a href="#" class="brand">
+      <a href="./index.html" class="brand">
         <i class="bi bi-terminal me-2"></i>Solomon Chua<span class="cursor">_</span>
       </a>
       <nav class="nav-links">
@@ -38,6 +38,112 @@
       </nav>
     </div>
   </header>
+
+  <!-- Main Content Container -->
+  <main class="container py-5">
+
+    <!-- Section Intro Header -->
+    <section class="mb-5">
+      <div class="hud-panel mb-4">
+        <div class="panel-header">
+          <span class="panel-title"><i class="bi bi-code-slash me-2"></i>PROJECT_REPOSITORY.SYS</span>
+        </div>
+        <div class="panel-body">
+          <p class="profile-text mb-0">
+            A showcase of my software projects, game scripts, and open-source contributions. Explore my repositories and codebase setups below.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 GitHub Terminal Cards -->
+    <section class="mb-5">
+      <div class="row g-4">
+
+        <!-- GitHub Terminal Card 1 -->
+        <div class="col-12 col-md-6">
+          <div class="hud-panel h-100 p-0 overflow-hidden">
+            <!-- Terminal Title Bar -->
+            <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="small font-monospace text-muted ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/roblox-framework</span>
+              </div>
+              <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-3 font-monospace">
+              <div class="text-success mb-2"><span class="text-cyan">$</span> git status</div>
+              <p class="small text-light mb-3">
+                Custom Lua-based game engine framework for Roblox Studio. Handles modular UI state, inventory systems, and network replication across places.
+              </p>
+
+              <!-- Language & Repo Metadata -->
+              <div class="d-flex align-items-center gap-3 small text-muted mb-3 flex-wrap">
+                <span><i class="bi bi-circle-fill text-warning me-1"></i>Lua</span>
+                <span><i class="bi bi-star me-1"></i>12 Stars</span>
+                <span><i class="bi bi-diagram-2 me-1"></i>4 Forks</span>
+              </div>
+
+              <!-- Terminal Command / Link -->
+              <div class="bg-black p-2 rounded border border-secondary mb-3">
+                <span class="text-secondary">$ git clone https://github.com/TheOnlySolomon/roblox-framework.git</span>
+              </div>
+
+              <a href="https://github.com/TheOnlySolomon" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Terminal Card 2 -->
+        <div class="col-12 col-md-6">
+          <div class="hud-panel h-100 p-0 overflow-hidden">
+            <!-- Terminal Title Bar -->
+            <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="small font-monospace text-muted ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/personal-portfolio</span>
+              </div>
+              <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-3 font-monospace">
+              <div class="text-success mb-2"><span class="text-cyan">$</span> git log -1</div>
+              <p class="small text-light mb-3">
+                A HUD/Cyberpunk inspired responsive developer portfolio site built with Bootstrap 5, custom CSS scanlines, and live dynamic REST API integration.
+              </p>
+
+              <!-- Language & Repo Metadata -->
+              <div class="d-flex align-items-center gap-3 small text-muted mb-3 flex-wrap">
+                <span><i class="bi bi-circle-fill text-danger me-1"></i>HTML / CSS</span>
+                <span><i class="bi bi-star me-1"></i>8 Stars</span>
+                <span><i class="bi bi-diagram-2 me-1"></i>2 Forks</span>
+              </div>
+
+              <!-- Terminal Command / Link -->
+              <div class="bg-black p-2 rounded border border-secondary mb-3">
+                <span class="text-secondary">$ git clone https://github.com/TheOnlySolomon/personal-portfolio.git</span>
+              </div>
+
+              <a href="https://github.com/TheOnlySolomon" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -54,8 +160,5 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Scroll-reveal script -->
-  <script src="script.js"></script>
 </body>
 </html>
