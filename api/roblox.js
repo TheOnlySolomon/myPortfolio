@@ -1,7 +1,4 @@
-// Server-to-server proxy for Roblox's public API.
-// Avoids relying on third-party CORS proxies (corsproxy.io, allorigins, etc.),
-// which restrict or block requests from production domains. Since this runs
-// on Vercel's server, not in the browser, there's no CORS restriction at all.
+// Server-to-server Roblox API proxy
 
 const ALLOWED_HOSTS = new Set([
   "users.roblox.com",
@@ -10,31 +7,56 @@ const ALLOWED_HOSTS = new Set([
   "games.roblox.com",
   "groups.roblox.com",
   "thumbnails.roblox.com",
+  "badges.roblox.com",
+  "accountinformation.roblox.com",
   "apis.roblox.com"
 ]);
 
 export default async function handler(req, res) {
+  // If a URL is provided, use the generic Roblox proxy
   const { url } = req.query;
 
-  if (!url) {
-    return res.status(400).json({ error: "Missing url parameter" });
-  }
-
-  let target;
   try {
-    target = new URL(url);
-  } catch {
-    return res.status(400).json({ error: "Invalid url parameter" });
-  }
+    // Badge request
+    if (!url) {
+      const userId = "386830245";
 
-  if (!ALLOWED_HOSTS.has(target.hostname)) {
-    return res.status(400).json({ error: "Host not allowed" });
-  }
+      const response = await fetch(
+        `https://badges.roblox.com/v1/users/${userId}/badges?sortOrder=Desc&limit=10`
+      );
 
-  try {
+      if (!response.ok) {
+        return res.status(response.status).json({
+          error: "Roblox badge API request failed"
+        });
+      }
+
+      const data = await response.json();
+      return res.status(200).json(data);
+    }
+
+    // Generic Roblox API proxy
+    let target;
+
+    try {
+      target = new URL(url);
+    } catch {
+      return res.status(400).json({
+        error: "Invalid url parameter"
+      });
+    }
+
+    if (!ALLOWED_HOSTS.has(target.hostname)) {
+      return res.status(400).json({
+        error: "Host not allowed"
+      });
+    }
+
     const fetchOptions = {
       method: req.method,
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json"
+      }
     };
 
     if (req.method === "POST") {
@@ -45,8 +67,12 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     return res.status(response.status).json(data);
+
   } catch (error) {
-    console.error("Roblox proxy error:", error);
-    return res.status(500).json({ error: "Failed to fetch Roblox data" });
+    console.error("Roblox API error:", error);
+
+    return res.status(500).json({
+      error: "Failed to fetch Roblox data"
+    });
   }
 }
