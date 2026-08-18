@@ -12,6 +12,12 @@ const FALLBACK_STATS = {
   statusColor: "#6c757d"
 };
 
+function truncateText(text, maxLength = 120) {
+  if (!text) return "No description provided.";
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + "...";
+}
+
 async function fetchRobloxStats() {
   const proxy = "/api/roblox?url=";
   const now = Date.now();
@@ -77,7 +83,6 @@ async function fetchRobloxStats() {
       }
     }
 
-    // 3. Assemble stats object (Clean numbers only)
     const liveStats = {
       joined: userData.created ? new Date(userData.created).getFullYear().toString() : FALLBACK_STATS.joined,
       friends: friendsData.count !== undefined ? `${friendsData.count}` : FALLBACK_STATS.friends,
@@ -130,9 +135,6 @@ function applyStatsToDOM(stats) {
   }
 }
 
-// Fetches Roblox data through our own Vercel serverless function
-// (/api/roblox.js), which proxies server-to-server. This avoids the CORS
-// and free-tier origin restrictions that come with public CORS proxies.
 async function fetchViaProxies(targetUrl, options = {}) {
   const proxyUrl = `/api/roblox?url=${encodeURIComponent(targetUrl)}`;
   const response = await fetch(proxyUrl, options);
@@ -154,8 +156,6 @@ async function fetchGameThumbnails() {
   const imgElements = Array.from(document.querySelectorAll("img[data-place-id]"));
   if (imgElements.length === 0) return;
 
-  // If a thumbnail 404s or the proxy returns something non-image, don't
-  // leave a broken-image icon on screen.
   imgElements.forEach(img => {
     img.addEventListener("error", () => showThumbnailFallback([img]), { once: true });
   });
@@ -186,8 +186,6 @@ async function fetchGameThumbnails() {
   }
 }
 
-// Fetches group name/description/member count + icon for each
-// data-group-id card in #groups-container, via the same server-side proxy.
 async function fetchGroups() {
   const cards = Array.from(document.querySelectorAll("[data-group-id]"));
   if (cards.length === 0) return;
@@ -218,7 +216,6 @@ async function fetchGroups() {
 
       if (group) {
         if (nameEl) nameEl.textContent = group.name;
-        // v2 sometimes omits memberCount, so guard against undefined
         if (membersEl) {
           membersEl.textContent = typeof group.memberCount === "number"
             ? `${group.memberCount.toLocaleString()} Members`
@@ -250,8 +247,104 @@ async function fetchGroups() {
   }
 }
 
+function formatVisitCount(num) {
+  if (typeof num !== "number") return "--";
+  if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}M`;
+  if (num >= 1_000) return `${(num / 1_000).toFixed(1)}K`;
+  return `${num}`;
+}
+
+function formatCreatedDate(dateString) {
+  if (!dateString) return "--";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "--";
+  return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+async function fetchMyGames() {
+  const cards = Array.from(document.querySelectorAll(".my-game-card"));
+  if (cards.length === 0) return;
+
+  const applyFallbackText = () => {
+    cards.forEach(card => {
+      const descEl = card.querySelector(".my-game-desc");
+      const visitsEl = card.querySelector(".my-game-visits");
+      const createdEl = card.querySelector(".my-game-created");
+      const genreEl = card.querySelector(".my-game-genre");
+      if (descEl) descEl.textContent = "Live data unavailable right now.";
+      if (visitsEl) visitsEl.textContent = "--";
+      if (createdEl) createdEl.textContent = "--";
+      if (genreEl) genreEl.textContent = "--";
+    });
+  };
+
+  try {
+    const universeLookups = await Promise.all(
+      cards.map(async card => {
+        const placeId = card.getAttribute("data-place-id");
+        try {
+          const result = await fetchViaProxies(`https://apis.roblox.com/universes/v1/places/${placeId}/universe`);
+          return { placeId, universeId: result && result.universeId ? result.universeId : null };
+        } catch {
+          return { placeId, universeId: null };
+        }
+      })
+    );
+
+    const universeIds = universeLookups.map(u => u.universeId).filter(Boolean);
+    if (universeIds.length === 0) throw new Error("No universe IDs resolved");
+
+    const gamesResult = await fetchViaProxies(`https://games.roblox.com/v1/games?universeIds=${universeIds.join(",")}`);
+    const gameList = (gamesResult && gamesResult.data) || [];
+
+    const thumbsResult = await fetchViaProxies(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeIds.join(",")}&size=512x512&format=Png&isCircular=false`);
+    const thumbList = (thumbsResult && thumbsResult.data) || [];
+
+    cards.forEach(card => {
+      const placeId = card.getAttribute("data-place-id");
+      const lookup = universeLookups.find(u => u.placeId === placeId);
+
+      const nameEl = card.querySelector(".my-game-name");
+      const descEl = card.querySelector(".my-game-desc");
+      const visitsEl = card.querySelector(".my-game-visits");
+      const createdEl = card.querySelector(".my-game-created");
+      const genreEl = card.querySelector(".my-game-genre");
+      const imgEl = card.querySelector("[data-my-game-thumb]");
+
+      const game = lookup && lookup.universeId ? gameList.find(g => String(g.id) === String(lookup.universeId)) : null;
+      const thumb = lookup && lookup.universeId ? thumbList.find(t => String(t.targetId) === String(lookup.universeId)) : null;
+
+      if (game) {
+        if (nameEl) nameEl.textContent = game.name || nameEl.textContent;
+        if (descEl) descEl.textContent = truncateText(game.description, 120);
+        if (visitsEl) visitsEl.textContent = formatVisitCount(game.visits);
+        if (createdEl) createdEl.textContent = formatCreatedDate(game.created);
+        if (genreEl) genreEl.textContent = game.genre || card.getAttribute("data-fallback-genre") || "All Genres";
+      } else {
+        if (descEl) descEl.textContent = "Live data unavailable right now.";
+        if (visitsEl) visitsEl.textContent = "--";
+        if (createdEl) createdEl.textContent = "--";
+        if (genreEl) genreEl.textContent = "--";
+      }
+
+      if (imgEl) {
+        if (thumb && thumb.imageUrl) {
+          imgEl.src = thumb.imageUrl;
+          imgEl.alt = game ? game.name : "Game thumbnail";
+        } else {
+          showThumbnailFallback([imgEl]);
+        }
+      }
+    });
+  } catch (err) {
+    console.warn("Failed to load live game data:", err.message);
+    applyFallbackText();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchRobloxStats();
   fetchGameThumbnails();
   fetchGroups();
+  fetchMyGames();
 });

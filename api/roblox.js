@@ -9,7 +9,8 @@ const ALLOWED_HOSTS = new Set([
   "presence.roblox.com",
   "games.roblox.com",
   "groups.roblox.com",
-  "thumbnails.roblox.com"
+  "thumbnails.roblox.com",
+  "apis.roblox.com"
 ]);
 
 export default async function handler(req, res) {
