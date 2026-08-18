@@ -914,9 +914,3 @@ a { color: inherit; }
   transform: translateY(-2px);
 }
 
-.roblox-avatar {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    object-fit: contain;
-}
