@@ -254,6 +254,28 @@ function formatVisitCount(num) {
   return `${num}`;
 }
 
+// Fetch Roblox avatar thumbnail
+async function fetchAvatar() {
+  const avatarImg = document.getElementById("avatar-image");
+  if (!avatarImg) return;
+
+  try {
+    const targetUrl = `https://thumbnails.roblox.com/v1/users/avatar?userIds=${ROBLOX_USER_ID}&size=420x420&format=Png&isCircular=true`;
+    const result = await fetchViaProxies(targetUrl);
+    
+    if (result && result.data && result.data.length > 0 && result.data[0].imageUrl) {
+      avatarImg.src = result.data[0].imageUrl;
+      avatarImg.alt = "Solomon's Roblox Avatar";
+    } else {
+      // Fallback if avatar can't be loaded
+      avatarImg.style.display = "none";
+    }
+  } catch (error) {
+    console.warn("Could not load avatar:", error);
+    avatarImg.style.display = "none";
+  }
+}
+
 function formatCreatedDate(dateString) {
   if (!dateString) return "--";
   const date = new Date(dateString);
@@ -347,5 +369,35 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchGameThumbnails();
   fetchGroups();
   fetchMyGames();
+  fetchAvatar(); // Add this line
 });
 
+async function loadRobloxBadges() {
+  const container = document.getElementById("roblox-badges");
+
+  try {
+    const url = encodeURIComponent(
+      `https://accountinformation.roblox.com/v1/users/${ROBLOX_USER_ID}/roblox-badges`
+    );
+
+    const res = await fetch(`/api/roblox?url=${url}`);
+    if (!res.ok) throw new Error("Failed to fetch badges");
+
+    const data = await res.json();
+    const badges = Array.isArray(data) ? data : data.data || [];
+
+    container.innerHTML = badges.slice(0, 10).map(badge => `
+      <img src="${badge.imageUrl}"
+           class="roblox-badge-icon"
+           alt="${badge.name}"
+           title="${badge.name}">
+    `).join("");
+
+  } catch (error) {
+    console.error("Roblox badge error:", error);
+    container.innerHTML =
+      `<p class="text-secondary">Unable to load Roblox badges.</p>`;
+  }
+}
+
+loadRobloxBadges();

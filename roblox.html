@@ -44,83 +44,138 @@
 
     <!-- 1. Intro Section & Profile Stats -->
     <section class="mb-5">
-      <div class="row gap-3 mx-auto justify-content-center">
-        <div class="hud-panel col-3 col-md-3 mb-4 ">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-controller me-2"></i>My Profile</span>
-          </div>
-          <div class="panel-body">
-          </div>
+  <div class="row gap-3 mx-auto justify-content-center">
+
+    <!-- Avatar Panel -->
+    <div class="hud-panel col-3 col-md-3 mb-4">
+      <div class="panel-header">
+        <span class="panel-title">
+          <i class="bi bi-person-circle me-2"></i>My Profile
+        </span>
+      </div>
+
+      <div class="panel-body text-center">
+        <img id="avatar-image"
+             class="img-fluid mb-3"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover;"
+             alt="Roblox Avatar">
+      </div>
+    </div>
+
+
+    <!-- Roblox Journey + Badges Column -->
+    <div class="col-8 col-md-8 mb-4 p-0">
+
+      <!-- My Roblox Journey -->
+      <div class="hud-panel mb-3">
+        <div class="panel-header">
+          <span class="panel-title">
+            <i class="bi bi-controller me-2"></i>My Roblox Journey
+          </span>
         </div>
-        <div class="hud-panel col-8 col-md-8 mb-4 ">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-controller me-2"></i>My Roblox Journey</span>
-          </div>
-          <div class="panel-body">
-            <p class="profile-text mb-0">
-              Welcome to my Roblox hub! Over the past <strong class="highlight-text">8 years</strong>, Roblox has been more than just a gaming platform for me—it's been a canvas for game development, community building, and content creation. From exploring user-generated worlds to scripting my own simulators, here is a snapshot of my avatar legacy and statistics. Feel free to discover my roblox statistics and my favorite games!
-            </p>
+
+        <div class="panel-body">
+          <p class="profile-text mb-0">
+            Welcome to my Roblox hub! Over the past
+            <strong class="highlight-text">8 years</strong>, Roblox has been
+            more than just a gaming platform for me—it's been a canvas for
+            game development, community building, and content creation.
+            From exploring user-generated worlds to scripting my own
+            simulators, here is a snapshot of my avatar legacy and statistics.
+            Feel free to discover my Roblox statistics and my favorite games!
+          </p>
+
+          <div class="row pt-3">
+            <div class="col">
+              <span class="badge badge-outline badge-blue me-1">Trader</span>
+              <span class="badge badge-outline badge-yellow me-1">Collector</span>
+              <span class="badge badge-outline badge-green me-1">Developer</span>
+              <span class="badge rounded-pill badge-outline badge-purple me-1">Traders</span>
+              <span class="badge rounded-pill badge-outline badge-red me-1">Collector</span>
+              <span class="badge rounded-pill badge-outline badge-cyan me-1">Developer</span>
+              <span class="badge rounded-pill badge-outline badge-white me-1">Builder</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Roblox Account Stats Grid -->
-    <div class="row g-3">
-  <!-- Joined Year -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div class="hud-panel hud-joined text-center py-3">
-      <i class="bi bi-calendar3 fs-3 mb-1"></i>
-      <span class="d-block small  ">Joined</span>
-      <strong id="stat-joined" class="fs-6">Loading...</strong>
+
+      <!-- Roblox Badges -->
+      <div class="hud-panel">
+        <div class="panel-header">
+          <span class="panel-title">
+            <i class="bi bi-award-fill me-2"></i>Milestones
+          </span>
+        </div>
+
+        <div class="panel-body">
+          <div id="roblox-badges" class="d-flex flex-wrap gap-1 pt-1"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Badges -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div class="hud-panel hud-badges text-center py-3">
-      <i class="bi bi-award-fill fs-3 mb-1"></i>
-      <span class="d-block small  ">Badges</span>
-      <strong id="stat-badges" class="fs-6">1000+</strong>
-    </div>
-  </div>
 
-  <!-- Friends -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div class="hud-panel hud-friends text-center py-3">
-      <i class="bi bi-people-fill fs-3 mb-1"></i>
-      <span class="d-block small  ">Friends</span>
-      <strong id="stat-friends" class="fs-6">Loading...</strong>
-    </div>
-  </div>
+  <!-- Roblox Account Stats Grid -->
+  <div class="row g-3">
 
-  <!-- Followers -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div class="hud-panel hud-followers text-center py-3">
-      <i class="bi bi-person-plus-fill fs-3 mb-1"></i>
-      <span class="d-block small  ">Followers</span>
-      <strong id="stat-followers" class="fs-6">Loading...</strong>
+    <!-- Joined Year -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="hud-panel hud-joined text-center py-3">
+        <i class="bi bi-calendar3 fs-3 mb-1"></i>
+        <span class="d-block small">Joined</span>
+        <strong id="stat-joined" class="fs-6">Loading...</strong>
+      </div>
     </div>
-  </div>
 
-  <!-- Favorites -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div class="hud-panel hud-favorites text-center py-3">
-      <i class="bi bi-heart-fill fs-3 mb-1"></i>
-      <span class="d-block small  ">Favorites</span>
-      <strong id="stat-favorites" class="fs-6">Loading...</strong>
+    <!-- Badges -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="hud-panel hud-badges text-center py-3">
+        <i class="bi bi-award-fill fs-3 mb-1"></i>
+        <span class="d-block small">Badges</span>
+        <strong id="stat-badges" class="fs-6">1000+</strong>
+      </div>
     </div>
-  </div>
 
-  <!-- Status -->
-  <div class="col-6 col-md-4 col-lg-2">
-    <div id="status-hud-panel" class="hud-panel status-panel text-center py-3">
-      <i id="status-icon" class="bi bi-controller fs-3 mb-1"></i>
-      <span class="d-block small  ">Status</span>
-      <strong id="stat-status" class="fs-6">Loading...</strong>
+    <!-- Friends -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="hud-panel hud-friends text-center py-3">
+        <i class="bi bi-people-fill fs-3 mb-1"></i>
+        <span class="d-block small">Friends</span>
+        <strong id="stat-friends" class="fs-6">Loading...</strong>
+      </div>
     </div>
+
+    <!-- Followers -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="hud-panel hud-followers text-center py-3">
+        <i class="bi bi-person-plus-fill fs-3 mb-1"></i>
+        <span class="d-block small">Followers</span>
+        <strong id="stat-followers" class="fs-6">Loading...</strong>
+      </div>
+    </div>
+
+    <!-- Favorites -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div class="hud-panel hud-favorites text-center py-3">
+        <i class="bi bi-heart-fill fs-3 mb-1"></i>
+        <span class="d-block small">Favorites</span>
+        <strong id="stat-favorites" class="fs-6">Loading...</strong>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="col-6 col-md-4 col-lg-2">
+      <div id="status-hud-panel" class="hud-panel status-panel text-center py-3">
+        <i id="status-icon" class="bi bi-controller fs-3 mb-1"></i>
+        <span class="d-block small">Status</span>
+        <strong id="stat-status" class="fs-6">Loading...</strong>
+      </div>
+    </div>
+
   </div>
-</div>
-    </section>
+</section>
 
     <!-- 2. Favorite Games (5 Cards in 1 Row) -->
     <section class="mb-5">
