@@ -845,3 +845,78 @@ a { color: inherit; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* =========================================================
+   12. CARD HOVER VARIETY UTILITIES
+   (used across books.html / hobbies.html / projects.html so
+   every card group gets a distinctly different hover feel,
+   mirroring the mixed hover styles already on index/roblox)
+   ========================================================= */
+
+/* --- Glow only: border + glow, icon pops, no lift (like hud-joined/status-panel) --- */
+.glow-card {
+  --tone: var(--cyan);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glow-card:hover {
+  border-color: var(--tone) !important;
+  box-shadow: 0 0 16px var(--tone) !important;
+}
+.glow-card i { color: var(--tone); transition: transform 0.25s ease; }
+.glow-card:hover i { transform: scale(1.18); }
+
+/* --- Soft lift: subtle rise + border color shift, no glow (like repo-card) --- */
+.soft-card {
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.soft-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--soft-accent, var(--line-bright));
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Tint fill: background wash + accent border, no movement (like btn-play-experience) --- */
+.tint-card {
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.tint-card:hover {
+  background: var(--tint-bg, rgba(47, 229, 255, 0.08));
+  border-color: var(--tone, var(--cyan)) !important;
+}
+
+/* --- Icon pop: icon rotates & scales on top of the panel's own lift+glow --- */
+.pop-card i {
+  transition: transform 0.35s var(--ease);
+  display: inline-block;
+}
+.pop-card:hover i {
+  transform: scale(1.22) rotate(-8deg);
+}
+
+/* --- 3D tilt: gentle perspective tilt + lift + glow (favorites / highlight cards) --- */
+.tilt-card {
+  transition: transform 0.35s var(--ease), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tilt-card:hover {
+  transform: perspective(700px) rotateX(3deg) rotateY(-3deg) translateY(-5px);
+  border-color: var(--accent, var(--cyan)) !important;
+  box-shadow: 0 16px 30px -14px var(--accent, var(--cyan));
+}
+
+/* --- Skill pill: small badge hover, fills with its own accent color --- */
+.skill-pill {
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+.skill-pill:hover {
+  background: var(--pill-tone, var(--cyan));
+  color: var(--black) !important;
+  transform: translateY(-2px);
+}
+
+.roblox-avatar {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+}
