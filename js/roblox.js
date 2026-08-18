@@ -316,7 +316,7 @@ async function fetchMyGames() {
 
       if (game) {
         if (nameEl) nameEl.textContent = game.name || nameEl.textContent;
-        if (descEl) descEl.textContent = truncateText(game.description, 120);
+        if (descEl) descEl.textContent = truncateText(game.description, 220);
         if (visitsEl) visitsEl.textContent = formatVisitCount(game.visits);
         if (createdEl) createdEl.textContent = formatCreatedDate(game.created);
         if (genreEl) genreEl.textContent = game.genre || card.getAttribute("data-fallback-genre") || "All Genres";
