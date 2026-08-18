@@ -349,21 +349,3 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchMyGames();
 });
 
-async function loadRobloxAvatar() {
-    try {
-        const response = await fetch("/api/roblox");
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch Roblox avatar");
-        }
-
-        const data = await response.json();
-
-        document.getElementById("robloxAvatar").src = data.avatarUrl;
-
-    } catch (error) {
-        console.error("Failed to load Roblox avatar:", error);
-    }
-}
-
-loadRobloxAvatar();
