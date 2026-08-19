@@ -39,311 +39,293 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container my-5 py-4">
+  <!-- Main Content Container -->
+  <main class="container py-5">
 
-    <!-- Page Title & General Description -->
-    <section class="mb-5 text-center">
-      <p class="lead text-secondary mx-auto" style="max-width: 750px;">
-        Welcome to my personal bookshelf! Reading is one of my primary ways to deconstruct complex ideas, explore fictional worlds, and keep learning continuously. Explore my favorite genres, recent reads, and overall statistics below.
-      </p>
-    </section>
-
-   <!-- Section 1: Genres (4 Cards Row) -->
-<section class="mb-5">
-  <h2 class="h3 fw-bold mb-4 border-bottom pb-2">Favorite Genres</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-    
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary">
-        <div class="card-body">
-          <i class="bi bi-cpu fs-1 mb-3 text-primary"></i>
-          <h5 class="card-title fw-bold">Self-help</h5>
-          <p class="card-text text-secondary">Self-help books have shaped who I am today, transforming my perspective and inspiring me to continuously grow and improve.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary">
-        <div class="card-body">
-          <i class="bi bi-controller fs-1 mb-3 text-success"></i>
-          <h5 class="card-title fw-bold">A.I.</h5>
-          <p class="card-text text-secondary">As an AI student, I enjoy exploring how artificial intelligence is rapidly evolving and expanding the possibilities of technology.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary">
-        <div class="card-body">
-          <i class="bi bi-lightbulb fs-1 mb-3 text-warning"></i>
-          <h5 class="card-title fw-bold">History</h5>
-          <p class="card-text text-secondary">I enjoy exploring Southeast Asian and European history, especially the events and cultures that have shaped the world we live in today.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary">
-        <div class="card-body">
-          <i class="bi bi-code-slash fs-1 mb-3 text-info"></i>
-          <h5 class="card-title fw-bold">Others</h5>
-          <p class="card-text text-secondary">I also enjoy exploring psychology, philosophy, finance, theology, and other fascinating subjects that broaden my understanding of the world.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Section 2: Book Stat Cards (5 Cards Row) -->
+    <!-- 1. Intro Section -->
     <section class="mb-5">
-      <h2 class="h3 fw-bold mb-4 border-bottom pb-2">Reading Tracker Stats</h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
-        <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
-            <div class="card-body">
-              <span class="fs-1 fw-bold text-primary" id="stat-total">0</span>
-              <h6 class="card-subtitle mt-2 text-secondary">Total Books Read</h6>
-            </div>
-          </div>
+      <div class="hud-panel">
+        <div class="panel-header">
+          <span class="panel-title">
+            <i class="bi bi-book me-2"></i>My Reading Journey
+          </span>
         </div>
-        <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
-            <div class="card-body">
-              <span class="fs-1 fw-bold text-info" id="stat-scifi">0</span>
-              <h6 class="card-subtitle mt-2 text-secondary">Self-help</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
-            <div class="card-body">
-              <span class="fs-1 fw-bold text-success" id="stat-litrpg">0</span>
-              <h6 class="card-subtitle mt-2 text-secondary">A.I.</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
-            <div class="card-body">
-              <span class="fs-1 fw-bold text-warning" id="stat-self">0</span>
-              <h6 class="card-subtitle mt-2 text-secondary">History</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary text-center p-2">
-            <div class="card-body">
-              <span class="fs-1 fw-bold text-danger" id="stat-tech">0</span>
-              <h6 class="card-subtitle mt-2 text-secondary">Others</h6>
+
+        <div class="panel-body">
+          <p class="profile-text mb-0">
+            Welcome to my personal bookshelf! Reading is one of my primary ways
+            to deconstruct complex ideas, explore fictional worlds, and keep
+            learning continuously. Explore my favorite genres, recent reads,
+            and overall statistics below.
+          </p>
+
+          <div class="row pt-3">
+            <div class="col">
+              <span class="badge badge-outline badge-blue me-1">Self-help</span>
+              <span class="badge badge-outline badge-green me-1">A.I.</span>
+              <span class="badge badge-outline badge-yellow me-1">History</span>
+              <span class="badge badge-outline badge-purple me-1">Others</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-<section class="mb-5">
-  <h2 class="h3 fw-bold mb-2">Favorite Reads (2024 – 2026)</h2>
-  <p class="text-secondary mb-4">
-The list of books I found most impactful throughout my two years of reading. Each book has been exciting and intellectually stimulating, offering new perspectives and ideas that have greatly enriched my curiosity and growth as an inquisitive thinker.  </p>
-
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-
-    <!-- Lee Kuan Yew: The Man And His Ideas -->
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary d-flex flex-column">
-
-        <!-- Book Cover -->
-        <div class="book-cover">
-          <img src="imgs/b-lee-kuan-yew.jpeg"
-               class="card-img-top"
-               alt="Lee Kuan Yew: The Man And His Ideas">
-        </div>
-
-        <!-- Book Information -->
-        <div class="card-body d-flex flex-column">
-
-          <!-- Rating -->
-          <div class="text-warning mb-2">
-            <i class="bi bi-star-fill me-1"></i>5.0 / 5.0
-          </div>
-
-          <!-- Title -->
-          <h5 class="card-title fw-bold book-title">
-            Lee Kuan Yew: The Man And His Ideas
-          </h5>
-
-          <!-- Author -->
-          <p class="card-subtitle mb-3 text-secondary book-author">
-            Han Fook Kwang / Warren Fernandez / Sumiko Tan
-          </p>
-
-          <!-- Description -->
-          <p class="card-text text-secondary small book-description mb-0">
-            An insightful account of Lee Kuan Yew's life, political ideas,
-            and the transformation of Singapore.
-          </p>
-
-        </div>
+    <!-- 2. Favorite Genres (4 Panels in 1 Row) -->
+    <section class="mb-5">
+      <div class="panel-header mb-3">
+        <span class="panel-title"><i class="bi bi-collection me-2"></i>Favorite Genres</span>
       </div>
-    </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
 
-
-    <!-- The Psychology Of Money -->
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary d-flex flex-column">
-
-        <!-- Book Cover -->
-        <div class="book-cover">
-          <img src="imgs/b-psychology-of-money.jpeg"
-               class="card-img-top"
-               alt="The Psychology Of Money">
-        </div>
-
-        <!-- Book Information -->
-        <div class="card-body d-flex flex-column">
-
-          <!-- Rating -->
-          <div class="text-warning mb-2">
-            <i class="bi bi-star-fill me-1"></i>5.0 / 5.0
-          </div>
-
-          <!-- Title -->
-          <h5 class="card-title fw-bold book-title">
-            The Psychology Of Money
-          </h5>
-
-          <!-- Author -->
-          <p class="card-subtitle mb-3 text-secondary book-author">
-            Morgan Housel
-          </p>
-
-          <!-- Description -->
-          <p class="card-text text-secondary small book-description mb-0">
-            A compelling exploration of how emotions, behavior, and personal
-            experiences shape the way we think about and manage money.
-          </p>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- A Brief History Of Singapore And Malaysia -->
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary d-flex flex-column">
-
-        <!-- Book Cover -->
-        <div class="book-cover">
-          <img src="imgs/b-Singapore-and-Malaysia.jpeg"
-               class="card-img-top"
-               alt="A Brief History Of Singapore And Malaysia">
-        </div>
-
-        <!-- Book Information -->
-        <div class="card-body d-flex flex-column">
-
-          <!-- Rating -->
-          <div class="text-warning mb-2">
-            <i class="bi bi-star-fill me-1"></i>5.0 / 5.0
-          </div>
-
-          <!-- Title -->
-          <h5 class="card-title fw-bold book-title">
-            A Brief History Of Singapore And Malaysia
-          </h5>
-
-          <!-- Author -->
-          <p class="card-subtitle mb-3 text-secondary book-author">
-            Christopher Hale
-          </p>
-
-          <!-- Description -->
-          <p class="card-text text-secondary small book-description mb-0">
-            A concise exploration of the history, politics, and development
-            of Singapore and Malaysia, from their colonial past to the
-            formation of the modern nations.
-          </p>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- The Psychology Book -->
-    <div class="col">
-      <div class="card h-100 bg-dark text-light border-secondary d-flex flex-column">
-
-        <!-- Book Cover -->
-        <div class="book-cover">
-          <img src="imgs/b-the-psychology-book.jpeg"
-               class="card-img-top"
-               alt="The Psychology Book">
-        </div>
-
-        <!-- Book Information -->
-        <div class="card-body d-flex flex-column">
-
-          <!-- Rating -->
-          <div class="text-warning mb-2">
-            <i class="bi bi-star-fill me-1"></i>5.0 / 5.0
-          </div>
-
-          <!-- Title -->
-          <h5 class="card-title fw-bold book-title">
-            The Psychology Book
-          </h5>
-
-          <!-- Author -->
-          <p class="card-subtitle mb-3 text-secondary book-author">
-            Catherine Collin et al.
-          </p>
-
-          <!-- Description -->
-          <p class="card-text text-secondary small book-description mb-0">
-            An engaging introduction to psychology, exploring 100 influential
-            theories, experiments, and ideas from some of the field's most
-            important thinkers.
-          </p>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Section 5: Connect / Social Cards (2 Cards Row) -->
-    <section class="mb-4">
-      <h2 class="h3 fw-bold mb-2">Want to Know More?</h2>
-      <p class="text-secondary mb-4">Follow along with my ongoing reading journey, code projects, and daily life updates.</p>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex align-items-center">
+          <div class="hud-panel panel-purple h-100">
+            <div class="panel-body">
+              <i class="bi bi-lightbulb fs-1 mb-3 text-cyan"></i>
+              <h5 class="text-cyan fw-bold fs-6 mb-2">Self-help</h5>
+              <p class="small text-light mb-0">Self-help books have shaped who I am today, transforming my perspective and inspiring me to continuously grow and improve.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="hud-panel panel-yellow h-100">
+            <div class="panel-body">
+              <i class="bi bi-cpu fs-1 mb-3 text-cyan"></i>
+              <h5 class="text-cyan fw-bold fs-6 mb-2">A.I.</h5>
+              <p class="small text-light mb-0">As an AI student, I enjoy exploring how artificial intelligence is rapidly evolving and expanding the possibilities of technology.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="hud-panel panel-orange h-100">
+            <div class="panel-body">
+              <i class="bi bi-hourglass-split fs-1 mb-3 text-cyan"></i>
+              <h5 class="text-cyan fw-bold fs-6 mb-2">History</h5>
+              <p class="small text-light mb-0">I enjoy exploring Southeast Asian and European history, especially the events and cultures that have shaped the world we live in today.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="hud-panel panel-pink h-100">
+            <div class="panel-body">
+              <i class="bi bi-stars fs-1 mb-3 text-cyan"></i>
+              <h5 class="text-cyan fw-bold fs-6 mb-2">Others</h5>
+              <p class="small text-light mb-0">I also enjoy exploring psychology, philosophy, finance, theology, and other fascinating subjects that broaden my understanding of the world.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Reading Tracker Stats (5 Panels in 1 Row) -->
+    <section class="mb-5">
+      <div class="panel-header mb-3">
+        <span class="panel-title"><i class="bi bi-bar-chart-fill me-2"></i>Reading Tracker Stats</span>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg">
+          <div class="hud-panel hud-joined text-center py-3">
+            <i class="bi bi-journal-bookmark-fill fs-3 mb-1"></i>
+            <span class="d-block small">Total Books Read</span>
+            <strong id="stat-total" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg">
+          <div class="hud-panel hud-badges text-center py-3">
+            <i class="bi bi-lightbulb fs-3 mb-1"></i>
+            <span class="d-block small">Self-help</span>
+            <strong id="stat-scifi" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg">
+          <div class="hud-panel hud-friends text-center py-3">
+            <i class="bi bi-cpu fs-3 mb-1"></i>
+            <span class="d-block small">A.I.</span>
+            <strong id="stat-litrpg" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg">
+          <div class="hud-panel hud-followers text-center py-3">
+            <i class="bi bi-hourglass-split fs-3 mb-1"></i>
+            <span class="d-block small">History</span>
+            <strong id="stat-self" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg">
+          <div class="hud-panel hud-favorites text-center py-3">
+            <i class="bi bi-stars fs-3 mb-1"></i>
+            <span class="d-block small">Others</span>
+            <strong id="stat-tech" class="fs-6">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Favorite Reads (4 Cards in 1 Row) -->
+    <section class="mb-5">
+      <div class="panel-header mb-2">
+        <span class="panel-title"><i class="bi bi-star me-2"></i>Favorite Reads (2024 – 2026)</span>
+      </div>
+      <p class="text-secondary mb-4">
+        The list of books I found most impactful throughout my two years of reading. Each book has been exciting and intellectually stimulating, offering new perspectives and ideas that have greatly enriched my curiosity and growth as an inquisitive thinker.
+      </p>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+        <!-- Lee Kuan Yew: The Man And His Ideas -->
+        <div class="col">
+          <div class="hud-panel panel-purple h-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="panel-header d-flex justify-content-between align-items-center px-3 pt-3">
+              <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</span>
+              <span class="badge badge-outline badge-yellow">History</span>
+            </div>
+
+            <div class="book-cover">
+              <img src="imgs/b-lee-kuan-yew.jpeg" alt="Lee Kuan Yew: The Man And His Ideas">
+            </div>
+
+            <div class="panel-body d-flex flex-column flex-grow-1 p-3">
+              <h5 class="text-cyan fw-bold fs-6 book-title">
+                Lee Kuan Yew: The Man And His Ideas
+              </h5>
+              <p class="small text-secondary mb-2 book-author">
+                Han Fook Kwang / Warren Fernandez / Sumiko Tan
+              </p>
+              <p class="small text-light book-description mb-0">
+                An insightful account of Lee Kuan Yew's life, political ideas,
+                and the transformation of Singapore.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Psychology Of Money -->
+        <div class="col">
+          <div class="hud-panel panel-yellow h-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="panel-header d-flex justify-content-between align-items-center px-3 pt-3">
+              <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</span>
+              <span class="badge badge-outline badge-purple">Others</span>
+            </div>
+
+            <div class="book-cover">
+              <img src="imgs/b-psychology-of-money.jpeg" alt="The Psychology Of Money">
+            </div>
+
+            <div class="panel-body d-flex flex-column flex-grow-1 p-3">
+              <h5 class="text-cyan fw-bold fs-6 book-title">
+                The Psychology Of Money
+              </h5>
+              <p class="small text-secondary mb-2 book-author">
+                Morgan Housel
+              </p>
+              <p class="small text-light book-description mb-0">
+                A compelling exploration of how emotions, behavior, and personal
+                experiences shape the way we think about and manage money.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- A Brief History Of Singapore And Malaysia -->
+        <div class="col">
+          <div class="hud-panel panel-orange h-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="panel-header d-flex justify-content-between align-items-center px-3 pt-3">
+              <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</span>
+              <span class="badge badge-outline badge-yellow">History</span>
+            </div>
+
+            <div class="book-cover">
+              <img src="imgs/b-Singapore-and-Malaysia.jpeg" alt="A Brief History Of Singapore And Malaysia">
+            </div>
+
+            <div class="panel-body d-flex flex-column flex-grow-1 p-3">
+              <h5 class="text-cyan fw-bold fs-6 book-title">
+                A Brief History Of Singapore And Malaysia
+              </h5>
+              <p class="small text-secondary mb-2 book-author">
+                Christopher Hale
+              </p>
+              <p class="small text-light book-description mb-0">
+                A concise exploration of the history, politics, and development
+                of Singapore and Malaysia, from their colonial past to the
+                formation of the modern nations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Psychology Book -->
+        <div class="col">
+          <div class="hud-panel panel-pink h-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="panel-header d-flex justify-content-between align-items-center px-3 pt-3">
+              <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>5.0 / 5.0</span>
+              <span class="badge badge-outline badge-purple">Others</span>
+            </div>
+
+            <div class="book-cover">
+              <img src="imgs/b-the-psychology-book.jpeg" alt="The Psychology Book">
+            </div>
+
+            <div class="panel-body d-flex flex-column flex-grow-1 p-3">
+              <h5 class="text-cyan fw-bold fs-6 book-title">
+                The Psychology Book
+              </h5>
+              <p class="small text-secondary mb-2 book-author">
+                Catherine Collin et al.
+              </p>
+              <p class="small text-light book-description mb-0">
+                An engaging introduction to psychology, exploring 100 influential
+                theories, experiments, and ideas from some of the field's most
+                important thinkers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Call to Action / Connect -->
+    <section class="mb-5">
+      <div class="panel-header mb-3">
+        <span class="panel-title"><i class="bi bi-link-45deg me-2"></i>Want to Know More?</span>
+      </div>
+      <p class="text-secondary mb-4">Follow along with my ongoing reading journey!</p>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        <!-- Instagram Repo Card -->
+        <div class="col">
+          <div class="hud-panel h-100">
+            <div class="panel-body d-flex align-items-center">
               <i class="bi bi-instagram fs-1 me-3 text-danger"></i>
               <div>
-                <h5 class="card-title fw-bold mb-1">Instagram</h5>
-                <p class="card-text text-secondary mb-2">Check out my story highlights, book reflections, and behind-the-scenes life.</p>
-                <a href="https://instagram.com/__Solocali__" target="_blank" class="btn btn-outline-light btn-sm">Follow @__Solocali__</a>
+                <h5 class="text-cyan fw-bold mb-1">Instagram</h5>
+                <p class="small text-light mb-2">Check out my story highlights, book reflections, and behind-the-scenes life.</p>
+                <a href="https://www.instagram.com/solomonreadsbooks/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">Follow @solomonreadsbooks</a>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Obsidian Repo Card -->
         <div class="col">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex align-items-center">
-              <i class="bi bi-github fs-1 me-3 text-light"></i>
+          <div class="hud-panel h-100">
+            <div class="panel-body d-flex align-items-center">
+              <i class="bi bi-diagram-3-fill fs-1 me-3 text-light"></i>
               <div>
-                <h5 class="card-title fw-bold mb-1">GitHub Repository</h5>
-                <p class="card-text text-secondary mb-2">Explore the open-source codebases for my developer portfolio and projects.</p>
-                <a href="https://github.com/TheOnlySolomon" target="_blank" class="btn btn-outline-light btn-sm">View GitHub Profile</a>
+                <h5 class="text-cyan fw-bold mb-1">Obsidian Vault</h5>
+                <p class="small text-light mb-2">Explore my personal knowledge base of book notes, summaries, and reading reflections.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">View Obsidian Vault</a>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -382,4 +364,4 @@ The list of books I found most impactful throughout my two years of reading. Eac
   <!-- Scroll-reveal script -->
   <script src="script.js"></script>
 </body>
-</html>z  
+</html>
