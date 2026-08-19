@@ -46,7 +46,7 @@
     <section class="mb-5">
       <div class="hud-panel mb-4">
         <div class="panel-header">
-          <span class="panel-title"><i class="bi bi-code-slash me-2"></i>PROJECT_REPOSITORY.SYS</span>
+          <span class="panel-title"><i class="bi bi-code-slash me-2"></i>My Projects</span>
         </div>
         <div class="panel-body">
           <p class="profile-text mb-0">
@@ -56,60 +56,63 @@
       </div>
     </section>
 
-    <!-- 2 GitHub Terminal Cards -->
+    <!-- 4 GitHub Terminal Cards -->
     <section class="mb-5">
       <div class="row g-4">
 
-        <!-- GitHub Terminal Card 1 -->
+        <!-- Terminal Card 1: Roblox Game (live visits/favorites via /api/roblox) -->
         <div class="col-12 col-md-6">
-          <div class="hud-panel h-100 p-0 overflow-hidden">
+          <div class="hud-panel h-100 p-0 overflow-hidden" data-place-id="116242952491675">
             <!-- Terminal Title Bar -->
             <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center gap-2">
                 <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
                 <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
                 <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
-                <span class="small font-monospace text-muted ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/roblox-framework</span>
+                <span class="small font-monospace ms-2"><i class="bi bi-controller me-1"></i>TheOnlySolomon/my-roblox-game</span>
               </div>
-              <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
+              <span class="badge bg-outline-info border border-info text-cyan small">Live</span>
             </div>
 
             <!-- Terminal Body -->
             <div class="p-3 font-monospace">
-              <div class="text-success mb-2"><span class="text-cyan">$</span> git status</div>
+              <div class="text-success mb-2"><span class="text-cyan">$</span> roblox status</div>
               <p class="small text-light mb-3">
                 Custom Lua-based game engine framework for Roblox Studio. Handles modular UI state, inventory systems, and network replication across places.
               </p>
 
-              <!-- Language & Repo Metadata -->
-              <div class="d-flex align-items-center gap-3 small text-muted mb-3 flex-wrap">
+              <!-- Language & Repo Metadata (live) -->
+              <div class="d-flex align-items-center gap-3 small mb-3 flex-wrap">
                 <span><i class="bi bi-circle-fill text-warning me-1"></i>Lua</span>
-                <span><i class="bi bi-star me-1"></i>12 Stars</span>
-                <span><i class="bi bi-diagram-2 me-1"></i>4 Forks</span>
+                <span><i class="bi bi-eye me-1"></i><span class="roblox-visits">-- Visits</span></span>
+                <span><i class="bi bi-heart me-1"></i><span class="roblox-favorites">-- Favorites</span></span>
               </div>
 
-              <!-- Terminal Command / Link -->
+              <!-- Terminal Command / Link (clickable, actually opens the experience) -->
               <div class="bg-black p-2 rounded border border-secondary mb-3">
-                <span class="text-secondary">$ git clone https://github.com/TheOnlySolomon/roblox-framework.git</span>
+                <div class="text-secondary small mb-1"># play the live experience</div>
+                <a href="https://www.roblox.com/games/116242952491675/Know-Your-Character" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none" style="word-break: break-all;">
+                  https://www.roblox.com/games/116242952491675/Know-Your-Character
+                </a>
               </div>
 
-              <a href="https://github.com/TheOnlySolomon" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
-                <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
+              <a href="https://www.roblox.com/games/116242952491675/Know-Your-Character" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                <i class="bi bi-box-arrow-up-right me-1"></i>Play Experience
               </a>
             </div>
           </div>
         </div>
 
-        <!-- GitHub Terminal Card 2 -->
+        <!-- Terminal Card 2: myPortfolio GitHub Repo (live stars/forks via /api/github-rest) -->
         <div class="col-12 col-md-6">
-          <div class="hud-panel h-100 p-0 overflow-hidden">
+          <div class="hud-panel h-100 p-0 overflow-hidden" data-repo="TheOnlySolomon/myPortfolio">
             <!-- Terminal Title Bar -->
             <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center gap-2">
                 <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
                 <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
                 <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
-                <span class="small font-monospace text-muted ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/personal-portfolio</span>
+                <span class="small font-monospace ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/myPortfolio</span>
               </div>
               <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
             </div>
@@ -121,19 +124,99 @@
                 A HUD/Cyberpunk inspired responsive developer portfolio site built with Bootstrap 5, custom CSS scanlines, and live dynamic REST API integration.
               </p>
 
-              <!-- Language & Repo Metadata -->
-              <div class="d-flex align-items-center gap-3 small text-muted mb-3 flex-wrap">
-                <span><i class="bi bi-circle-fill text-danger me-1"></i>HTML / CSS</span>
-                <span><i class="bi bi-star me-1"></i>8 Stars</span>
-                <span><i class="bi bi-diagram-2 me-1"></i>2 Forks</span>
+              <!-- Language & Repo Metadata (live) -->
+              <div class="d-flex align-items-center gap-3 small mb-3 flex-wrap">
+                <span><i class="bi bi-circle-fill text-danger me-1"></i><span class="repo-lang">HTML / CSS</span></span>
+                <span><i class="bi bi-star me-1"></i><span class="repo-stars">8 Stars</span></span>
+                <span><i class="bi bi-diagram-2 me-1"></i><span class="repo-forks">2 Forks</span></span>
               </div>
 
-              <!-- Terminal Command / Link -->
+              <!-- Terminal Command / Link (clickable, actually clones the repo) -->
               <div class="bg-black p-2 rounded border border-secondary mb-3">
-                <span class="text-secondary">$ git clone https://github.com/TheOnlySolomon/personal-portfolio.git</span>
+                <span class="text-secondary">$ git clone </span><a href="https://github.com/TheOnlySolomon/myPortfolio.git" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none" style="word-break: break-all;">https://github.com/TheOnlySolomon/myPortfolio.git</a>
               </div>
 
-              <a href="https://github.com/TheOnlySolomon" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+              <a href="https://github.com/TheOnlySolomon/myPortfolio" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Card 3: Chatbot (live stars/forks via /api/github-rest) -->
+        <div class="col-12 col-md-6">
+          <div class="hud-panel h-100 p-0 overflow-hidden" data-repo="TheOnlySolomon/Voice-Chatbot">
+            <!-- Terminal Title Bar -->
+            <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="small font-monospace ms-2"><i class="bi bi-github me-1"></i>TheOnlySolomon/chatbot</span>
+              </div>
+              <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-3 font-monospace">
+              <div class="text-success mb-2"><span class="text-cyan">$</span> python voice_chatbot.py</div>
+              <p class="small text-light mb-3">
+                A conversational chatbot project handling intent recognition and dynamic response generation.
+              </p>
+
+              <!-- Language & Repo Metadata (live) -->
+              <div class="d-flex align-items-center gap-3 small mb-3 flex-wrap">
+                <span><i class="bi bi-circle-fill text-info me-1"></i><span class="repo-lang">Python</span></span>
+                <span><i class="bi bi-star me-1"></i><span class="repo-stars">5 Stars</span></span>
+                <span><i class="bi bi-diagram-2 me-1"></i><span class="repo-forks">1 Fork</span></span>
+              </div>
+
+              <!-- Terminal Command / Link (clickable, actually clones the repo) -->
+              <div class="bg-black p-2 rounded border border-secondary mb-3">
+                <span class="text-secondary">$ git clone </span><a href="https://github.com/TheOnlySolomon/Voice-Chatbot.git" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none" style="word-break: break-all;">https://github.com/TheOnlySolomon/Voice-Chatbot.git</a>
+              </div>
+
+              <a href="https://github.com/TheOnlySolomon/Voice-Chatbot" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Card 4: UI/UX Assignment (live stars/forks via /api/github-rest) -->
+        <div class="col-12 col-md-6">
+          <div class="hud-panel h-100 p-0 overflow-hidden" data-repo="lueu123/uxdesign_assignment">
+            <!-- Terminal Title Bar -->
+            <div class="bg-dark px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="rounded-circle bg-danger d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="rounded-circle bg-success d-inline-block" style="width: 10px; height: 10px;"></span>
+                <span class="small font-monospace ms-2"><i class="bi bi-github me-1"></i>lueu123/uxdesign_assignment</span>
+              </div>
+              <span class="badge bg-outline-info border border-info text-cyan small">Public</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-3 font-monospace">
+              <div class="text-success mb-2"><span class="text-cyan">$</span> git log -1</div>
+              <p class="small text-light mb-3">
+                A UI/UX design assignment exploring wireframes, prototyping, and usability principles for a course project.
+              </p>
+
+              <!-- Language & Repo Metadata (live) -->
+              <div class="d-flex align-items-center gap-3 small mb-3 flex-wrap">
+                <span><i class="bi bi-circle-fill text-warning me-1"></i><span class="repo-lang">Figma / HTML</span></span>
+                <span><i class="bi bi-star me-1"></i><span class="repo-stars">3 Stars</span></span>
+                <span><i class="bi bi-diagram-2 me-1"></i><span class="repo-forks">0 Forks</span></span>
+              </div>
+
+              <!-- Terminal Command / Link (clickable, actually clones the repo) -->
+              <div class="bg-black p-2 rounded border border-secondary mb-3">
+                <span class="text-secondary">$ git clone </span><a href="https://github.com/lueu123/uxdesign_assignment.git" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none" style="word-break: break-all;">https://github.com/lueu123/uxdesign_assignment.git</a>
+              </div>
+
+              <a href="https://github.com/lueu123/uxdesign_assignment" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
                 <i class="bi bi-box-arrow-up-right me-1"></i>View Repository
               </a>
             </div>
@@ -160,5 +243,8 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Live repo/game stats -->
+  <script src="js/projects.js"></script>
 </body>
 </html>
