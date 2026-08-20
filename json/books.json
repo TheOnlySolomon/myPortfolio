@@ -1,10 +1,10 @@
 {
   "total_books_read": 107,
   "categories": {
-    "sci_fi": 67,
-    "litrpg": 67,
-    "self_improvement": 67,
-    "tech_programming": 67,
-    "other_genres": 67
+    "sci_fi": 19,
+    "litrpg": 13,
+    "self_improvement": 11,
+    "tech_programming": 64,
+    "other_genres": 64
   }
 }

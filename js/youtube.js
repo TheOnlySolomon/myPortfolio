@@ -77,3 +77,4 @@ function applyYoutubeStatsToDOM(stats) {
 document.addEventListener("DOMContentLoaded", () => {
   fetchYoutubeStats();
 });
+
