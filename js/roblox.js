@@ -18,6 +18,13 @@ function truncateText(text, maxLength = 120) {
   return text.slice(0, maxLength).trim() + "...";
 }
 
+// Basic HTML escaping since badge names/URLs come from an external API
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 async function fetchRobloxStats() {
   const proxy = "/api/roblox?url=";
   const now = Date.now();
@@ -387,10 +394,10 @@ async function loadRobloxBadges() {
     const badges = Array.isArray(data) ? data : data.data || [];
 
     container.innerHTML = badges.slice(0, 10).map(badge => `
-      <img src="${badge.imageUrl}"
+      <img src="${escapeHtml(badge.imageUrl)}"
            class="roblox-badge-icon"
-           alt="${badge.name}"
-           title="${badge.name}">
+           alt="${escapeHtml(badge.name)}"
+           title="${escapeHtml(badge.name)}">
     `).join("");
 
   } catch (error) {

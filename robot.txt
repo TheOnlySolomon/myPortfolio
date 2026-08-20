@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solomonportfolio-lac.vercel.app/sitemap.xml

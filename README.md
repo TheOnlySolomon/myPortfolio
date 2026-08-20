@@ -10,7 +10,6 @@ A HUD/cyberpunk-themed developer portfolio built with HTML, Bootstrap 5, and cus
 | `roblox.html` | Roblox hub — live profile stats, badges, favorite games, communities, and self-developed games pulled from the Roblox API. |
 | `books.html` | Reading tracker — favorite genres, reading stats, and a curated list of favorite books. |
 | `projects.html` | Project showcase — GitHub-terminal-styled cards for coding projects and a Roblox game, with live star/fork/visit counts. |
-| `hobbies.html` | Hobbies and interests page. |
 
 ## API (Serverless Endpoints)
 
@@ -31,7 +30,7 @@ Vercel serverless functions that proxy third-party API calls server-side, so acc
 | `api/` | Serverless functions that securely proxy requests to the GitHub, Roblox, and YouTube APIs (see table above). |
 | `imgs/` | Static image assets used across the site — profile photo, book covers, and page thumbnails. |
 | `js/` | Client-side scripts handling UI interactivity and live data fetching for GitHub stats, Roblox game/profile stats, YouTube stats, and project cards. |
-| `json/` | Static data files (`books.json`, `hobbies.json`) rendered dynamically into their respective pages. |
+| `json/` | Static data files (`books.json`) rendered dynamically into their respective pages. |
 
 ## Root Files
 

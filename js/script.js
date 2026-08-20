@@ -25,32 +25,9 @@ async function initContributionChart() {
   if (!ctx) return;
 
   try {
-    // GraphQL query for contribution data
-    const query = `
-  query {
-    user(login: "TheOnlySolomon") {
-      contributionsCollection {
-        contributionCalendar {
-          totalContributions
-          weeks {
-            contributionDays {
-              contributionCount
-              date
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-const response = await fetch('/api/github', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ query })
-});
+    // The contribution query is fixed server-side in api/github.js —
+    // this endpoint takes no input, so a plain GET is all that's needed.
+    const response = await fetch('/api/github');
 
 if (!response.ok) {
   throw new Error(`Server error: ${response.status}`);
@@ -552,4 +529,3 @@ function setSingaporeGreeting() {
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', setSingaporeGreeting);
-

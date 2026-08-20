@@ -23,6 +23,8 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(target.toString());
     const data = await response.json();
+
+    res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
     return res.status(response.status).json(data);
   } catch (error) {
     console.error("YouTube proxy error:", error);
