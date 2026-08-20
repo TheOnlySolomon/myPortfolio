@@ -529,3 +529,4 @@ function setSingaporeGreeting() {
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', setSingaporeGreeting);
+

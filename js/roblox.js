@@ -25,6 +25,7 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+
 async function fetchRobloxStats() {
   const proxy = "/api/roblox?url=";
   const now = Date.now();
@@ -398,6 +399,10 @@ async function loadRobloxBadges() {
            class="roblox-badge-icon"
            alt="${escapeHtml(badge.name)}"
            title="${escapeHtml(badge.name)}">
+      <img src="${badge.imageUrl}"
+           class="roblox-badge-icon"
+           alt="${badge.name}"
+           title="${badge.name}">
     `).join("");
 
   } catch (error) {

@@ -13,8 +13,8 @@ const ALLOWED_HOSTS = new Set([
 ]);
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   // If a URL is provided, use the generic Roblox proxy
@@ -36,7 +36,12 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
-      res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
+
+      res.setHeader(
+        "Cache-Control",
+        "s-maxage=120, stale-while-revalidate=300"
+      );
+
       return res.status(200).json(data);
     }
 
@@ -63,11 +68,15 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       }
     });
+
     const data = await response.json();
 
-    res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
-    return res.status(response.status).json(data);
+    res.setHeader(
+      "Cache-Control",
+      "s-maxage=120, stale-while-revalidate=300"
+    );
 
+    return res.status(response.status).json(data);
   } catch (error) {
     console.error("Roblox API error:", error);
 
