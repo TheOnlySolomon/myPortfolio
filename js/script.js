@@ -569,10 +569,85 @@ function updateTimeProgress() {
   document.getElementById('year-bar').style.width = `${yearPct}%`;
 }
 
+async function loadLearningSkills() {
+  const container = document.getElementById('learningBars');
+  if (!container) return;
+
+  try {
+    const res = await fetch('json/learning.json');
+    if (!res.ok) throw new Error(`Failed to load learning.json: ${res.status}`);
+    const skills = await res.json();
+
+    container.innerHTML = skills.map(s => `
+      <div class="skill-bar-row">
+        <span class="skill-bar-name">${s.skill}</span>
+        <span class="skill-bar-label">${s.label}</span>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" data-level="${s.level}"></div>
+        </div>
+      </div>
+    `).join('');
+
+    // Animate fill after render so the transition actually plays
+    requestAnimationFrame(() => {
+      container.querySelectorAll('.skill-bar-fill').forEach(el => {
+        el.style.width = `${el.dataset.level}%`;
+      });
+    });
+  } catch (err) {
+    console.error('Error loading learning skills:', err);
+    container.innerHTML = `<p class="text-muted small">Unable to load learning data.</p>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadLearningSkills);
+
 document.addEventListener('DOMContentLoaded', () => {
   updateTimeProgress();
   setInterval(updateTimeProgress, 1000);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('terminal-input');
+    const body = document.getElementById('terminal-body');
+
+    const commands = {
+      help: "Available commands: <span style='color: var(--orange-hover, #f59e0b);'>bio</span>, <span style='color: var(--orange-hover, #f59e0b);'>skills</span>, <span style='color: var(--orange-hover, #f59e0b);'>socials</span>, <span style='color: var(--orange-hover, #f59e0b);'>clear</span>",
+      bio: "Solomon Chua | AI & Software Engineer<br>Focus: ML Models, NLP & Voice/Text Chatbots<br>Lifestyle: Calisthenics & Continuous Learning",
+      skills: "Python, JavaScript, ML, Deep Learning, Voice/Text Chatbots, Roblox Developing",
+      socials: "Instagram: @_Solocali_<br>GitHub: github.com/solomonchua<br>YouTube: @Solomonlegend7025"
+    };
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const value = input.value.trim().toLowerCase();
+        
+        // Echo input command
+        const userLine = document.createElement('p');
+        userLine.className = 'mb-1 text-white-50';
+        userLine.innerHTML = `<span style="color: var(--accent, #ff7a00); font-weight: bold;">&gt;</span> ${input.value}`;
+        body.appendChild(userLine);
+
+        // Execute command logic
+        if (value === 'clear') {
+          body.innerHTML = '';
+        } else if (commands[value]) {
+          const response = document.createElement('p');
+          response.className = 'mb-1';
+          response.innerHTML = commands[value];
+          body.appendChild(response);
+        } else if (value !== '') {
+          const error = document.createElement('p');
+          error.className = 'mb-1 text-danger';
+          error.innerHTML = `Command not found: '${value}'. Type <span style="color: var(--accent, #ff7a00);">'help'</span>.`;
+          body.appendChild(error);
+        }
+
+        input.value = '';
+        body.scrollTop = body.scrollHeight;
+      }
+    });
+  });
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', setSingaporeGreeting);

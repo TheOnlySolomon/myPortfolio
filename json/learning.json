@@ -1,0 +1,8 @@
+[
+  { "skill": "Python", "level": 85, "label": "Advanced" },
+  { "skill": "Machine Learning", "level": 65, "label": "Intermediate" },
+  { "skill": "Chatbot", "level": 65, "label": "Learning" },
+  { "skill": "Data Analytics", "level": 60, "label": "Intermediate" },
+  { "skill": "Deep Learning", "level": 45, "label": "Learning" },
+  { "skill": "Cloud / APIs", "level": 40, "label": "Learning" }
+]

@@ -1018,3 +1018,24 @@ a { color: inherit; }
 .roblox-badge-icon:hover {
   transform: scale(1.1);
 }
+
+.skill-bars{display:flex;flex-direction:column;gap:.85rem;padding:.5rem 0}.skill-bar-row{display:grid;grid-template-columns:1fr auto;align-items:center;row-gap:.25rem}.skill-bar-name{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#e8e8e8}.skill-bar-label{font-size:.75rem;color:#ff9d3d;text-transform:uppercase;letter-spacing:.05em}.skill-bar-track{grid-column:1/-1;height:6px;background:rgba(255,157,61,.12);border:1px solid rgba(255,157,61,.2);border-radius:3px;overflow:hidden;box-shadow:0 0 5px rgba(255,157,61,.15),inset 0 0 5px rgba(255,157,61,.1)}.skill-bar-fill{position:relative;height:100%;width:0;background:linear-gradient(90deg,#ff7a00,#ff9d3d,#ffd08a);border-radius:3px;box-shadow:0 0 4px #ff9d3d,0 0 10px rgba(255,157,61,.7),0 0 20px rgba(255,157,61,.35);transition:width .8s ease;overflow:hidden}.skill-bar-fill::after{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),rgba(255,220,150,1),transparent);filter:blur(1px);animation:skill-scan 2s linear infinite}.skill-bar-fill::before{content:"";position:absolute;top:-5px;left:-30%;width:30%;height:16px;background:rgba(255,180,90,.8);filter:blur(8px);animation:skill-glow 2s linear infinite}@keyframes skill-scan{0%{left:-40%}100%{left:110%}}@keyframes skill-glow{0%{left:-30%;opacity:0}15%{opacity:1}50%{opacity:.8}85%{opacity:1}100%{left:110%;opacity:0}}
+
+/* Custom Scrollbar for Terminal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(13, 17, 23, 0.5);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--line, #21262d);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent, #ff7a00);
+}
