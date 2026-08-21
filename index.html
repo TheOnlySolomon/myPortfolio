@@ -65,9 +65,11 @@
         </div>
       </div>
       <div class="col-12 col-sm-8 col-md-9">
-        <p class="eyebrow">// About me</p>
         <p class="profile-text">
-          <span id="time-greeting" class="d-block greeting-title mb-1">Good day!</span>
+          <span class="d-flex align-items-center flex-wrap gap-2 mb-1">
+            <span id="time-greeting" class="greeting-title">Good day!</span>
+            <span id="sg-clock" style="font-family: var(--font, 'JetBrains Mono', monospace); font-size: 0.75rem; color: var(--cyan, #2fe5ff); border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); padding: 2px 8px; letter-spacing: 0.05em;"></span>
+          </span>
           <span class="d-block text-cyan fw-bold fs-5 mb-1">I'm Solomon Chua</span>
           <span>A student in <strong class="highlight-text">Nanyang Polytechnic</strong>, Year 1 in <strong class="highlight-text">Applied AI &amp; Data Analytics in Singapore</strong>! Welcome to my portfolio — it features my projects and interests. Feel free to explore.</span>
         </p>
@@ -85,7 +87,7 @@
         <!-- Panel 1: Contribution Trend with Chart.js -->
         <div class="hud-panel panel-purple panel-compact">
           <div class="panel-header">
-            <span class="panel-title">Github Contribution</span>
+            <span class="panel-title"><i class="bi bi-github me-2"></i>Github Contribution</span>
             <span class="panel-status-dot online"></span>
           </div>
           <div class="panel-body p-0" style="height: 140px; position: relative;">
@@ -96,7 +98,7 @@
         <!-- Panel 2: Stats Overview -->
         <div class="hud-panel panel-purple panel-compact">
           <div class="panel-header">
-            <span class="panel-title">Github Stats</span>
+            <span class="panel-title"><i class="bi bi-bar-chart-fill me-2"></i>Github Stats</span>
             <span class="panel-status-dot online"></span>
           </div>
           <div class="panel-body">
@@ -125,6 +127,56 @@
                   <span class="stat-label d-block">Streak</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Panel 3: CV Overview -->
+        <div class="hud-panel panel-purple panel-compact">
+          <div class="panel-header">
+            <span class="panel-title"><i class="bi bi-file-earmark-person-fill me-2"></i>My CV</span>
+            <span class="panel-status-dot online"></span>
+          </div>
+          <div class="panel-body">
+            <div class="p-2"
+                style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px);">
+              <div class="d-flex align-items-center gap-1 mb-1">
+                <i class="bi bi-file-earmark-person" style="color: var(--purple-hover, #a78bfa); font-size: 0.85rem;"></i>
+                <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">Solomon_Chua_CV.pdf</span>
+              </div>
+              <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
+                Updated: 21 August 2026<br>
+                PDF • 1 page
+              </p>
+              <div class="d-flex gap-2 mt-2">
+                <a href="cv/Solomon_Chua_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm flex-fill"
+                   style="border: 1px solid var(--purple-hover, #a78bfa); color: var(--purple-hover, #a78bfa); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
+                   onmouseover="this.style.background='var(--purple-hover, #a78bfa)'; this.style.color='var(--bg-dark, #0d1117)';"
+                   onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a78bfa)';">
+                  View CV
+                </a>
+                <a href="cv/Solomon_Chua_CV.pdf" download class="btn btn-sm flex-fill"
+                   style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
+                   onmouseover="this.style.borderColor='var(--purple-hover, #a78bfa)'; this.style.color='var(--white, #f0f6fc)';"
+                   onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.color='var(--gray-1, #8b949e)';">
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: My Skills -->
+        <div class="hud-panel panel-purple panel-compact">
+          <div class="panel-header">
+            <span class="panel-title"><i class="bi bi-stars me-2"></i>My Skills</span>
+            <span class="panel-status-dot online"></span>
+          </div>
+          <div class="panel-body">
+            <div class="d-flex flex-wrap gap-2">
+              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Voice Chatbot</span>
+              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Text Chatbot</span>
+              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Website Creation</span>
             </div>
           </div>
         </div>
@@ -161,13 +213,97 @@
           </li>
         </ul>
         </div>
+
+        <div class="hud-panel panel-yellow mt-3">
+          <h5 class="panel-title"><i class="bi bi-rocket-takeoff-fill me-2"></i>What I do</h5>
+          <div class="row g-2">
+            <div class="col-6">
+              <div class="p-2 h-100"
+                  style="border: 1px solid var(--line-bright, #3a4260); background-color: var(--panel, #10141f); border-radius: var(--radius-sm, 10px);">
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-cpu" style="color: var(--yellow-hover, #eab308); font-size: 0.85rem;"></i>
+                  <span class="fw-bold" style="color: var(--white, #eef2f6); font-size: 0.8rem;">AI Development</span>
+                </div>
+                <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #b8c0cc); line-height: 1.3;">
+                  Machine Learning • Computer Vision • NLP
+                </p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 h-100"
+                  style="border: 1px solid var(--line-bright, #3a4260); background-color: var(--panel, #10141f); border-radius: var(--radius-sm, 10px);">
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-code-slash" style="color: var(--yellow-hover, #eab308); font-size: 0.85rem;"></i>
+                  <span class="fw-bold" style="color: var(--white, #eef2f6); font-size: 0.8rem;">Software Development</span>
+                </div>
+                <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #b8c0cc); line-height: 1.3;">
+                  Python • Flask • JavaScript • APIs
+                </p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 h-100"
+                  style="border: 1px solid var(--line-bright, #3a4260); background-color: var(--panel, #10141f); border-radius: var(--radius-sm, 10px);">
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-bar-chart-line" style="color: var(--yellow-hover, #eab308); font-size: 0.85rem;"></i>
+                  <span class="fw-bold" style="color: var(--white, #eef2f6); font-size: 0.8rem;">Data</span>
+                </div>
+                <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #b8c0cc); line-height: 1.3;">
+                  Data Analysis • Pandas • Visualization
+                </p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 h-100"
+                  style="border: 1px solid var(--line-bright, #3a4260); background-color: var(--panel, #10141f); border-radius: var(--radius-sm, 10px);">
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-palette" style="color: var(--yellow-hover, #eab308); font-size: 0.85rem;"></i>
+                  <span class="fw-bold" style="color: var(--white, #eef2f6); font-size: 0.8rem;">UI / UX</span>
+                </div>
+                <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #b8c0cc); line-height: 1.3;">
+                  Web Design • Prototyping • Frontend
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-2 mt-3">
+          <div class="col-4">
+            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Day</span>
+              <span id="day-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                <div id="day-bar" style="height: 100%; width: 0%; background: var(--cyan, #2fe5ff);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Month</span>
+              <span id="month-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                <div id="month-bar" style="height: 100%; width: 0%; background: var(--violet, #9b6bff);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Year</span>
+              <span id="year-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                <div id="year-bar" style="height: 100%; width: 0%; background: var(--amber, #ffb454);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- RIGHT SIDE (3 Panels -> Orange) -->
       <div class="col-12 col-md-3 d-flex flex-column gap-3">
         <div class="hud-panel panel-orange">
             <div class="panel-header">
-                <span class="panel-title">MY PROJECTS</span>
+                <span class="panel-title"><i class="bi bi-folder2-open me-2"></i>MY PROJECTS</span>
                 <span class="panel-status-dot online"></span>
             </div>
             <div class="panel-body p-0">
@@ -180,7 +316,7 @@
 
         <div class="hud-panel panel-orange">
           <div class="panel-header">
-            <span class="panel-title">Goals this year</span>
+            <span class="panel-title"><i class="bi bi-bullseye me-2"></i>Goals this year</span>
           </div>
           <div class="panel-body">
             <ul class="goals-list">
@@ -251,6 +387,25 @@
             </ul>
           </div>
         </div>
+        
+        <div class="hud-panel panel-orange">
+          <div class="panel-header">
+            <span class="panel-title"><i class="bi bi-envelope-paper-fill me-2"></i>Contact me</span>
+              <span class="panel-status-dot online"></span>
+            </div>
+          <div class="panel-body">
+            <!-- TODO: replace # with your LinkedIn profile URL -->
+            <p class="m-0" style="font-size: 0.8rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
+              Want to work together or just say hi?
+            </p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2 w-100"
+               style="border: 1px solid var(--orange-hover, #f59e0b); color: var(--orange-hover, #f59e0b); background: transparent; transition: all 0.2s ease-in-out;"
+               onmouseover="this.style.background='var(--orange-hover, #f59e0b)'; this.style.color='var(--bg-dark, #0d1117)';"
+               onmouseout="this.style.background='transparent'; this.style.color='var(--orange-hover, #f59e0b)';">
+              <i class="bi bi-send me-1"></i>Contact Me
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="container mt-4">
@@ -259,7 +414,7 @@
           <!-- Clothing Brand Panel -->
           <div class="col-12 col-md-4">
             <div class="hud-panel panel-pink h-100 d-flex flex-column gap-2">
-              <span class="panel-title d-block mb-1">Impacts</span>
+              <span class="panel-title d-block mb-1"><i class="bi bi-lightning-charge-fill me-2"></i>Impacts</span>
 
               <!-- First GitHub-style Mini Card -->
               <a href="https://instagram.com/__Solocali__" target="_blank" class="text-decoration-none">
@@ -340,7 +495,7 @@
           <!-- Skills Panel -->
           <div class="col-12 col-md-4">
             <div class="hud-panel panel-orange h-100">
-              <span class="panel-title d-block mb-3">Skills</span>
+              <span class="panel-title d-block mb-3"><i class="bi bi-tools me-2"></i>Skills</span>
               
               <!-- Hard Skills -->
               <div class="mb-3">
@@ -351,6 +506,9 @@
                   <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Chatbots</span>
                   <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">ML</span>
                   <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">AI</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Voice Chatbot</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Text Chatbot</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--pink);">Website Creation</span>
                 </div>
               </div>
 
@@ -384,7 +542,7 @@
           <!-- Work Experience Panel -->
           <div class="col-12 col-md-4">
             <div class="hud-panel panel-yellow h-100 d-flex flex-column gap-2">
-              <span class="panel-title d-block mb-1">Work Experience</span>
+              <span class="panel-title d-block mb-1"><i class="bi bi-briefcase-fill me-2"></i>Work Experience</span>
 
               <!-- CDAC Card -->
               <a href="https://www.cdac.org.sg/" target="_blank" class="text-decoration-none">

@@ -630,10 +630,7 @@ a { color: inherit; }
   font-size: 1.75rem; /* Noticeably larger than the fs-5 (1.25rem) name text below */
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #f0f6fc 30%, #ffd700 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  color: var(--white, #eef2f6);
 }
 
 /* Blue glowing text for name */

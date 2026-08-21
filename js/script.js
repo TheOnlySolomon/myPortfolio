@@ -527,6 +527,53 @@ function setSingaporeGreeting() {
   greetingEl.textContent = greeting;
 }
 
+function updateSingaporeClock() {
+  const clockEl = document.getElementById('sg-clock');
+  if (!clockEl) return;
+
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Singapore',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  }).formatToParts(now);
+
+  const get = (type) => parts.find(p => p.type === type)?.value ?? '';
+  clockEl.textContent = `SGT ${get('hour')}:${get('minute')}:${get('second')} ${get('dayPeriod')}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateSingaporeClock();
+  setInterval(updateSingaporeClock, 1000);
+});
+
+function updateTimeProgress() {
+  const now = new Date();
+
+  const dayPct = ((now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()) / 86400) * 100;
+
+  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  const monthPct = ((now.getDate() - 1 + now.getHours() / 24) / daysInMonth) * 100;
+
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const isLeap = new Date(now.getFullYear(), 1, 29).getMonth() === 1;
+  const yearPct = ((now - startOfYear) / (1000 * 60 * 60 * 24 * (isLeap ? 366 : 365))) * 100;
+
+  document.getElementById('day-pct').textContent = `${dayPct.toFixed(1)}%`;
+  document.getElementById('day-bar').style.width = `${dayPct}%`;
+  document.getElementById('month-pct').textContent = `${monthPct.toFixed(1)}%`;
+  document.getElementById('month-bar').style.width = `${monthPct}%`;
+  document.getElementById('year-pct').textContent = `${yearPct.toFixed(1)}%`;
+  document.getElementById('year-bar').style.width = `${yearPct}%`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateTimeProgress();
+  setInterval(updateTimeProgress, 1000);
+});
+
 // Run on page load
 document.addEventListener('DOMContentLoaded', setSingaporeGreeting);
 
