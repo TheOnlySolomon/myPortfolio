@@ -5,9 +5,9 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 const FALLBACK_STATS = {
   joined: "2018",
-  friends: "200 / 200",
-  followers: "500+",
-  favorites: "320+",
+  friends: "298",
+  followers: "838+",
+  favorites: "38+",
   status: "Offline",
   statusColor: "#6c757d"
 };
@@ -399,10 +399,6 @@ async function loadRobloxBadges() {
            class="roblox-badge-icon"
            alt="${escapeHtml(badge.name)}"
            title="${escapeHtml(badge.name)}">
-      <img src="${badge.imageUrl}"
-           class="roblox-badge-icon"
-           alt="${badge.name}"
-           title="${badge.name}">
     `).join("");
 
   } catch (error) {
@@ -411,5 +407,6 @@ async function loadRobloxBadges() {
       `<p class="text-secondary">Unable to load Roblox badges.</p>`;
   }
 }
+
 
 loadRobloxBadges();
