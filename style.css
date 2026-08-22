@@ -281,6 +281,47 @@ a { color: inherit; }
   margin: 0;
 }
 
+/* ---- Project stat cards (repositories / favorites / stars / forks) ---- */
+.project-stat-card {
+  --accent: var(--cyan);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.project-stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -12px var(--accent);
+}
+.project-stat-card--cyan   { --accent: var(--cyan); }
+.project-stat-card--pink   { --accent: var(--pink); }
+.project-stat-card--amber  { --accent: var(--amber); }
+.project-stat-card--violet { --accent: var(--violet); }
+.project-stat-card--orange { --accent: var(--orange-hover); }
+.project-stat-card--yellow { --accent: var(--yellow-hover); }
+.project-stat-icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.project-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--font);
+  color: var(--white);
+  line-height: 1.2;
+}
+.project-stat-label {
+  font-size: 0.7rem;
+  color: var(--gray-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.15rem;
+}
+
 /* =========================================================
    8. FOOTER
    ========================================================= */

@@ -13,6 +13,19 @@ function formatCount(num) {
   return `${num}`;
 }
 
+// Reverses formatCount() so totals can be summed from already-rendered
+// card text (handles plain numbers as well as "K"/"M" suffixed ones).
+function parseFormattedCount(text) {
+  if (!text) return 0;
+  const match = text.match(/([\d.]+)\s*(K|M)?/i);
+  if (!match) return 0;
+  let num = parseFloat(match[1]);
+  const suffix = (match[2] || "").toUpperCase();
+  if (suffix === "K") num *= 1_000;
+  if (suffix === "M") num *= 1_000_000;
+  return Math.round(num);
+}
+
 // ---------------------------------------------------------
 // GitHub repo stats (stars / forks / language)
 // ---------------------------------------------------------
@@ -25,6 +38,10 @@ async function fetchGithubRepo(fullName) {
 async function loadRepoStats() {
   const cards = Array.from(document.querySelectorAll("[data-repo]"));
   if (cards.length === 0) return;
+
+  // Repo count doesn't depend on the network, so it can be set immediately.
+  const totalReposEl = document.getElementById("statTotalRepos");
+  if (totalReposEl) totalReposEl.textContent = cards.length;
 
   await Promise.all(cards.map(async (card) => {
     const fullName = card.getAttribute("data-repo");
@@ -52,6 +69,26 @@ async function loadRepoStats() {
       console.warn(`Live GitHub stats unavailable for ${fullName}, keeping static fallback:`, err.message);
     }
   }));
+
+  updateRepoTotals(cards);
+}
+
+// Sums stars/forks across every repo card (live values where the fetch
+// succeeded, static fallback values where it didn't) into the stat cards.
+function updateRepoTotals(cards) {
+  let totalStars = 0;
+  let totalForks = 0;
+
+  cards.forEach((card) => {
+    totalStars += parseFormattedCount(card.querySelector(".repo-stars")?.textContent);
+    totalForks += parseFormattedCount(card.querySelector(".repo-forks")?.textContent);
+  });
+
+  const totalStarsEl = document.getElementById("statTotalStars");
+  const totalForksEl = document.getElementById("statTotalForks");
+
+  if (totalStarsEl) totalStarsEl.textContent = formatCount(totalStars) ?? totalStars;
+  if (totalForksEl) totalForksEl.textContent = formatCount(totalForks) ?? totalForks;
 }
 
 // ---------------------------------------------------------
@@ -87,12 +124,61 @@ async function loadRobloxGameStats() {
 
     if (visitsEl && visits !== null) visitsEl.textContent = `${visits} Visits`;
     if (favEl && favorites !== null) favEl.textContent = `${favorites} Favorites`;
+
+    const totalFavEl = document.getElementById("statTotalFavorites");
+    if (totalFavEl && favorites !== null) totalFavEl.textContent = favorites;
   } catch (err) {
     console.warn("Live Roblox stats unavailable, keeping static fallback:", err.message);
+  }
+}
+
+// ---------------------------------------------------------
+// Commit stats (reuses the fixed contribution-calendar query
+// already served by /api/github for the homepage's stats panel)
+// ---------------------------------------------------------
+async function loadCommitStats() {
+  const totalCommitsEl = document.getElementById("statTotalCommits");
+  if (!totalCommitsEl) return;
+
+  try {
+    const res = await fetch("/api/github");
+    if (!res.ok) throw new Error(`GitHub API error ${res.status}`);
+
+    const data = await res.json();
+    const total = data?.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions;
+    if (typeof total !== "number") throw new Error("Malformed contribution data");
+
+    totalCommitsEl.textContent = formatCount(total) ?? total;
+  } catch (err) {
+    console.warn("Live commit stats unavailable, keeping placeholder:", err.message);
+  }
+}
+
+// ---------------------------------------------------------
+// Live GitHub profile picture (falls back to the local
+// ./imgs/i-profile.png already in the HTML if the fetch fails)
+// ---------------------------------------------------------
+async function loadGithubAvatar() {
+  const avatarEl = document.getElementById("github-avatar");
+  if (!avatarEl) return;
+
+  const username = "TheOnlySolomon";
+  try {
+    const res = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(`users/${username}`)}`);
+    if (!res.ok) throw new Error(`GitHub API error ${res.status}`);
+
+    const data = await res.json();
+    if (!data.avatar_url) throw new Error("No avatar_url in response");
+
+    avatarEl.src = data.avatar_url;
+  } catch (err) {
+    console.warn("Live GitHub avatar unavailable, keeping local fallback:", err.message);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadRepoStats();
   loadRobloxGameStats();
+  loadCommitStats();
+  loadGithubAvatar();
 });
