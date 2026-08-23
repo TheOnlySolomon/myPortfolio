@@ -150,28 +150,28 @@
           <div class="hud-panel hud-badges text-center py-3">
             <i class="bi bi-lightbulb fs-3 mb-1"></i>
             <span class="d-block small">Self-help</span>
-            <strong id="stat-scifi" class="fs-6">0</strong>
+            <strong id="stat-selfhelp" class="fs-6">0</strong>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg">
           <div class="hud-panel hud-friends text-center py-3">
             <i class="bi bi-cpu fs-3 mb-1"></i>
             <span class="d-block small">A.I.</span>
-            <strong id="stat-litrpg" class="fs-6">0</strong>
+            <strong id="stat-ai" class="fs-6">0</strong>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg">
           <div class="hud-panel hud-followers text-center py-3">
             <i class="bi bi-hourglass-split fs-3 mb-1"></i>
             <span class="d-block small">History</span>
-            <strong id="stat-self" class="fs-6">0</strong>
+            <strong id="stat-history" class="fs-6">0</strong>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg">
           <div class="hud-panel hud-favorites text-center py-3">
             <i class="bi bi-stars fs-3 mb-1"></i>
             <span class="d-block small">Others</span>
-            <strong id="stat-tech" class="fs-6">0</strong>
+            <strong id="stat-others" class="fs-6">0</strong>
           </div>
         </div>
       </div>
@@ -367,10 +367,10 @@
       .then(response => response.json())
       .then(data => {
         document.getElementById('stat-total').textContent = data.total_books_read || 0;
-        document.getElementById('stat-scifi').textContent = data.categories.sci_fi || 0;
-        document.getElementById('stat-litrpg').textContent = data.categories.litrpg || 0;
-        document.getElementById('stat-self').textContent = data.categories.self_improvement || 0;
-        document.getElementById('stat-tech').textContent = data.categories.tech_programming || 0;
+        document.getElementById('stat-selfhelp').textContent = data.categories.self_help || 0;
+        document.getElementById('stat-ai').textContent = data.categories.ai || 0;
+        document.getElementById('stat-history').textContent = data.categories.history || 0;
+        document.getElementById('stat-others').textContent = data.categories.others || 0;
       })
       .catch(err => console.error('Error loading book stats from books.json:', err));
   </script>
