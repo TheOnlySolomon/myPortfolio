@@ -55,7 +55,7 @@
   <main class="container py-5">
 
     <!-- 1. Intro Section & Profile Stats -->
-    <section class="mb-5">
+  <section class="mb-5">
   <div class="row gap-3 mx-auto justify-content-center">
 
     <!-- Avatar Panel -->
@@ -112,16 +112,42 @@
       </div>
 
 
-      <!-- Roblox Badges -->
-      <div class="hud-panel">
-        <div class="panel-header">
-          <span class="panel-title">
-            <i class="bi bi-award-fill me-2"></i>Milestones
-          </span>
+     <div class="d-flex gap-3">
+        <!-- Milestones (30%) -->
+        <div class="hud-panel" style="flex: 0 0 30%;">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i class="bi bi-award-fill me-2"></i>Milestones
+            </span>
+          </div>
+          <div class="panel-body">
+            <div id="roblox-badges" class="d-flex flex-wrap gap-1 pt-1"></div>
+          </div>
         </div>
 
-        <div class="panel-body">
-          <div id="roblox-badges" class="d-flex flex-wrap gap-1 pt-1"></div>
+        <!-- Socials & Links (70%) -->
+        <div class="hud-panel" style="flex: 1;">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i class="bi bi-share-fill me-2"></i>Socials & Links
+            </span>
+          </div>
+          <div class="panel-body d-flex flex-wrap gap-2 pt-1">
+            <a href="https://www.roblox.com/users/386830245/profile" target="_blank" class="btn btn-outline-info rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="Roblox Profile">
+              <i class="bi bi-box-arrow-up-right fs-6"></i>
+              <span style="font-size: 0.55rem;" class="fw-bold">Roblox</span>
+            </a>
+
+            <a href="https://discord.com/channels/@me/1150749180965425182" target="_blank" class="btn btn-outline-indigo rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px; color: #5865F2; border-color: #5865F2;" title="Discord Server">
+              <i class="bi bi-discord fs-6"></i>
+              <span style="font-size: 0.55rem;" class="fw-bold">Discord</span>
+            </a>
+
+            <a href="https://www.youtube.com/@solomonlegend7025" target="_blank" class="btn btn-outline-danger rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="YouTube Channel">
+              <i class="bi bi-youtube fs-6"></i>
+              <span style="font-size: 0.55rem;" class="fw-bold">YouTube</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -335,49 +361,51 @@
 <section class="mb-5">
   <div class="hud-panel">
     <div class="panel-title">
-      <span>DEVELOPMENT GALLERY</span>
+      <span>My Development</span>
     </div>
 
     <div class="gallery-grid">
+
       <div class="gallery-item">
         <div class="gallery-image">
-          <img src="images/roblox-dev-1.png" alt="Roblox Studio development environment">
+          <img src="imgs/r-Programming.png" alt="Roblox Studio development environment">
         </div>
         <div class="gallery-info">
-          <h6>Roblox Studio</h6>
-          <p>Development environment used to build and test Roblox projects.</p>
+          <h6>ROBLOX STUDIO</h6>
+          <p>Development and scripting in Roblox Studio, including server-side systems, ClickDetectors, API integration, and gameplay logic.</p>
         </div>
       </div>
 
       <div class="gallery-item">
         <div class="gallery-image">
-          <img src="images/roblox-dev-2.png" alt="Roblox game environment">
+          <img src="imgs/r-Testing.png" alt="Roblox game testing environment">
         </div>
         <div class="gallery-info">
-          <h6>Game Environment</h6>
-          <p>Custom environments and gameplay spaces created for the project.</p>
+          <h6>GAME TESTING</h6>
+          <p>Testing game mechanics, interactions, and systems in a live environment to identify issues and ensure everything functions as intended.</p>
         </div>
       </div>
 
       <div class="gallery-item">
         <div class="gallery-image">
-          <img src="images/roblox-dev-3.png" alt="Roblox user interface development">
+          <img src="imgs/r-UI.png" alt="Roblox user interface development">
         </div>
         <div class="gallery-info">
-          <h6>UI Development</h6>
-          <p>Custom interfaces designed to improve the player's experience.</p>
+          <h6>UI DEVELOPMENT</h6>
+          <p>Designing and refining in-game interfaces with a minimalist approach to create a clear, intuitive, and enjoyable player experience.</p>
         </div>
       </div>
 
       <div class="gallery-item">
         <div class="gallery-image">
-          <img src="images/roblox-dev-4.png" alt="Roblox gameplay">
+          <img src="imgs/r-Published.png" alt="Published Roblox game page">
         </div>
         <div class="gallery-info">
-          <h6>Gameplay</h6>
-          <p>Gameplay systems and mechanics implemented within the project.</p>
+          <h6>PUBLISHED PROJECT</h6>
+          <p>The completed game published on Roblox, making the project accessible for players to experience and interact with.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
