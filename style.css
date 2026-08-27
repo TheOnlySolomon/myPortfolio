@@ -1312,3 +1312,34 @@ a { color: inherit; }
 .navbar-toggler:focus {
   box-shadow: 0 0 0 3px rgba(47, 229, 255, 0.35);
 }
+
+/* =========================================================
+   13. GLOBAL SCROLLBAR — NEON HUD
+   ========================================================= */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyan) var(--black);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+  border-left: 1px solid var(--line);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cyan), var(--violet));
+  border-radius: 999px;
+  border: 2px solid var(--black);
+  box-shadow: 0 0 6px var(--cyan), 0 0 14px rgba(47, 229, 255, 0.35);
+  transition: box-shadow 0.25s var(--ease);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan), 0 0 22px rgba(47, 229, 255, 0.6);
+}
+::-webkit-scrollbar-corner {
+  background: var(--black);
+}
