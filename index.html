@@ -191,7 +191,7 @@
           </div>
         </div>
 
-          <div class="hud-panel panel-orange">
+          <div class="hud-panel panel-purple">
           <div class="panel-header">
             <span class="panel-title"><i class="bi bi-envelope-paper-fill me-2"></i>Contact me</span>
               <span class="panel-status-dot online"></span>
@@ -202,9 +202,9 @@
               Want to work together or just say hi?
             </p>
             <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2 w-100"
-               style="border: 1px solid var(--orange-hover, #f59e0b); color: var(--orange-hover, #f59e0b); background: transparent; transition: all 0.2s ease-in-out;"
-               onmouseover="this.style.background='var(--orange-hover, #f59e0b)'; this.style.color='var(--bg-dark, #0d1117)';"
-               onmouseout="this.style.background='transparent'; this.style.color='var(--orange-hover, #f59e0b)';">
+              style="border: 1px solid var(--purple-hover, #a855f7); color: var(--purple-hover, #a855f7); background: transparent; transition: all 0.2s ease-in-out;"
+              onmouseover="this.style.background='var(--purple-hover, #a855f7)'; this.style.color='var(--bg-dark, #0d1117)';"
+              onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a855f7)';">
               <i class="bi bi-send me-1"></i>Contact Me
             </a>
           </div>
@@ -298,30 +298,32 @@
         </div>
 
         <div class="row g-2 mt-3">
-          <div class="col-4">
-            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
-              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Day Passed</span>
-              <span id="day-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
-              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
-                <div id="day-bar" style="height: 100%; width: 0%; background: var(--cyan, #2fe5ff);"></div>
+          <div class="row g-2 mt-3">
+            <div class="col-4">
+              <div class="p-2 text-center passed-card passed-card--cyan" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+                <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Day Passed</span>
+                <span id="day-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+                <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                  <div id="day-bar" style="height: 100%; width: 0%; background: var(--cyan, #2fe5ff);"></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
-              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Month Passed</span>
-              <span id="month-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
-              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
-                <div id="month-bar" style="height: 100%; width: 0%; background: var(--violet, #9b6bff);"></div>
+            <div class="col-4">
+              <div class="p-2 text-center passed-card passed-card--violet" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+                <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Month Passed</span>
+                <span id="month-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+                <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                  <div id="month-bar" style="height: 100%; width: 0%; background: var(--violet, #9b6bff);"></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="p-2 text-center" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
-              <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Year Passed</span>
-              <span id="year-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
-              <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
-                <div id="year-bar" style="height: 100%; width: 0%; background: var(--amber, #ffb454);"></div>
+            <div class="col-4">
+              <div class="p-2 text-center passed-card passed-card--amber" style="border: 1px solid var(--line-bright, #3a4260); border-radius: var(--radius-sm, 10px); background: var(--panel, #10141f);">
+                <span class="d-block" style="font-size: 0.65rem; color: var(--gray-2, #6f7890); text-transform: uppercase; letter-spacing: 0.05em;">Year Passed</span>
+                <span id="year-pct" class="d-block fw-bold" style="font-size: 1.1rem; color: var(--white, #eef2f6);">--%</span>
+                <div style="height: 4px; background: var(--line, #232a3d); border-radius: 4px; overflow: hidden; margin-top: 4px;">
+                  <div id="year-bar" style="height: 100%; width: 0%; background: var(--amber, #ffb454);"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -343,7 +345,7 @@
             
             <div class="d-flex align-items-center mt-2 pt-2" style="border-top: 1px dashed var(--line-bright, #3a4260);">
               <span class="me-2 fw-bold" style="color: var(--orange-hover, #f59e0b); font-size: 0.8rem;">&gt;</span>
-              <input type="text" id="terminal-input" class="bg-transparent border-0 w-100 p-0" style="outline: none; color: var(--white, #eef2f6); font-family: inherit; font-size: 0.8rem;" placeholder="type a command..." autofocus autocomplete="off">
+              <input type="text" id="terminal-input" class="bg-transparent border-0 w-100 p-0" style="outline: none; color: var(--white, #eef2f6); font-family: inherit; font-size: 0.8rem;" placeholder="type a command..." autocomplete="off">
             </div>
           </div>
         </div>

@@ -1343,3 +1343,15 @@ html {
 ::-webkit-scrollbar-corner {
   background: var(--black);
 }
+/* ---- Day/Month/Year passed mini-cards: hover glow matching their bar color ---- */
+.passed-card {
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.passed-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent) !important;
+  box-shadow: 0 10px 22px -12px var(--accent);
+}
+.passed-card--cyan   { --accent: var(--cyan); }
+.passed-card--violet { --accent: var(--violet); }
+.passed-card--amber  { --accent: var(--amber); }
