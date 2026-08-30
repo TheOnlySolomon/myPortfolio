@@ -65,10 +65,12 @@
 
     <!-- 1. Intro Section & Profile Stats -->
   <section class="mb-5">
+
+    <!-- Row 1: Avatar + My Roblox Journey -->
   <div class="row gap-3 mx-auto justify-content-center">
 
     <!-- Avatar Panel -->
-    <div class="hud-panel col-3 col-md-3 mb-4">
+    <div class="hud-panel col-12 col-md-3 mb-4" style="--panel-accent: var(--cyan);">
       <div class="panel-header">
         <span class="panel-title">
           <i class="bi bi-person-circle me-2"></i>My Profile
@@ -83,19 +85,16 @@
       </div>
     </div>
 
-
-    <!-- Roblox Journey + Badges Column -->
-    <div class="col-8 col-md-8 mb-4 p-0">
-
-      <!-- My Roblox Journey -->
-      <div class="hud-panel mb-3">
+    <!-- My Roblox Journey -->
+    <div class="col-12 col-md-8 mb-4 p-0">
+      <div class="hud-panel h-100 d-flex flex-column" style="--panel-accent: var(--violet);">
         <div class="panel-header">
           <span class="panel-title">
             <i class="bi bi-controller me-2"></i>My Roblox Journey
           </span>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body flex-grow-1 d-flex flex-column justify-content-center">
           <p class="profile-text mb-0">
             Welcome to my Roblox hub! Over the past
             <strong class="highlight-text">8 years</strong>, Roblox has been
@@ -119,51 +118,55 @@
           </div>
         </div>
       </div>
-
-
-     <div class="d-flex gap-3">
-        <!-- Milestones (30%) -->
-        <div class="hud-panel" style="flex: 0 0 30%;">
-          <div class="panel-header">
-            <span class="panel-title">
-              <i class="bi bi-award-fill me-2"></i>Milestones
-            </span>
-          </div>
-          <div class="panel-body">
-            <div id="roblox-badges" class="d-flex flex-wrap gap-1 pt-1"></div>
-          </div>
-        </div>
-
-        <!-- Socials & Links (70%) -->
-        <div class="hud-panel" style="flex: 1;">
-          <div class="panel-header">
-            <span class="panel-title">
-              <i class="bi bi-share-fill me-2"></i>Socials & Links
-            </span>
-          </div>
-          <div class="panel-body d-flex flex-wrap gap-2 pt-1">
-            <a href="https://www.roblox.com/users/386830245/profile" target="_blank" class="btn btn-outline-info rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="Roblox Profile">
-              <i class="bi bi-box-arrow-up-right fs-6"></i>
-              <span style="font-size: 0.55rem;" class="fw-bold">Roblox</span>
-            </a>
-
-            <a href="https://discord.com/channels/@me/1150749180965425182" target="_blank" class="btn btn-outline-indigo rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px; color: #5865F2; border-color: #5865F2;" title="Discord Server">
-              <i class="bi bi-discord fs-6"></i>
-              <span style="font-size: 0.55rem;" class="fw-bold">Discord</span>
-            </a>
-
-            <a href="https://www.youtube.com/@solomonlegend7025" target="_blank" class="btn btn-outline-danger rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="YouTube Channel">
-              <i class="bi bi-youtube fs-6"></i>
-              <span style="font-size: 0.55rem;" class="fw-bold">YouTube</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
     </div>
+
   </div>
 
+  <!-- Row 2: Milestones + Socials & Links -->
+  <div class="row gap-3 mx-auto justify-content-center">
 
+    <!-- Milestones -->
+    <div class="col-12 col-md-4 mb-4">
+      <div class="hud-panel h-100" style="--panel-accent: var(--amber);">
+        <div class="panel-header">
+          <span class="panel-title">
+            <i class="bi bi-award-fill me-2"></i>Milestones
+          </span>
+        </div>
+        <div class="panel-body">
+          <div id="roblox-badges" class="d-flex flex-wrap gap-1 pt-1"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socials & Links -->
+    <div class="col-12 col-md-4 mb-4">
+      <div class="hud-panel h-100 panel-pink">
+        <div class="panel-header">
+          <span class="panel-title">
+            <i class="bi bi-share-fill me-2"></i>Socials & Links
+          </span>
+        </div>
+        <div class="panel-body d-flex flex-wrap gap-2 pt-1">
+          <a href="https://www.roblox.com/users/386830245/profile" target="_blank" class="btn btn-outline-info rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="Roblox Profile">
+            <i class="bi bi-box-arrow-up-right fs-6"></i>
+            <span style="font-size: 0.55rem;" class="fw-bold">Roblox</span>
+          </a>
+
+          <a href="https://discord.com/channels/@me/1150749180965425182" target="_blank" class="btn btn-outline-indigo rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px; color: #5865F2; border-color: #5865F2;" title="Discord Server">
+            <i class="bi bi-discord fs-6"></i>
+            <span style="font-size: 0.55rem;" class="fw-bold">Discord</span>
+          </a>
+
+          <a href="https://www.youtube.com/@solomonlegend7025" target="_blank" class="btn btn-outline-danger rounded-2 d-inline-flex flex-column align-items-center justify-content-center p-1" style="width: 55px; height: 55px;" title="YouTube Channel">
+            <i class="bi bi-youtube fs-6"></i>
+            <span style="font-size: 0.55rem;" class="fw-bold">YouTube</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <!-- Roblox Account Stats Grid -->
   <div class="row g-3">
 
@@ -230,7 +233,7 @@
 
     <!-- Development Profile -->
     <div class="col-6 col-lg-6">
-      <div class="hud-panel h-100">
+      <div class="hud-panel h-100 panel-purple">
         <div class="panel-header">
           <span class="panel-title"><i class="bi bi-code-slash me-2"></i>Development Profile</span>
         </div>
@@ -296,7 +299,7 @@
 
     <!-- Roblox Timeline -->
     <div class="col-6 col-lg-6">
-      <div class="hud-panel h-100">
+      <div class="hud-panel h-100 panel-yellow">
         <div class="panel-header">
           <span class="panel-title"><i class="bi bi-clock-history me-2"></i>Roblox Journey</span>
         </div>
@@ -507,15 +510,16 @@
 
     <!-- 3. Communities Section (3 Cards in 1 Row) -->
     <section class="mb-5">
-      <div class="hud-panel mb-4">
-        <div class="panel-header d-flex justify-content-between align-items-center flex-wrap gap-2">
-          <span class="panel-title"><i class="bi bi-people-fill me-2"></i>My Communities</span>
-        </div>
-        <div class="panel-body">
-          <p class="profile-text mb-0">
-           Building communities around gaming, developing my own game called "Beach Simulator" and running my own clothing store have been some of the most rewarding parts of my Roblox journey. They gave me the chance to connect with a wide range of people, each bringing their own culture, taste, and perspective. What started as simply interacting with players online grew into something bigger: an appreciation for the sheer depth of history and experience that exists in the world beyond the screen. These three communities capture what I've built both for the Roblox community and for myself.
-        </div>
+    <div class="hud-panel mb-4" style="--panel-accent: var(--cyan);">
+      <div class="panel-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span class="panel-title"><i class="bi bi-people-fill me-2"></i>My Communities</span>
       </div>
+      <div class="panel-body">
+        <p class="profile-text mb-0">
+        Building communities around gaming, developing my own game called "Beach Simulator" and running my own clothing store have been some of the most rewarding parts of my Roblox journey. They gave me the chance to connect with a wide range of people, each bringing their own culture, taste, and perspective. What started as simply interacting with players online grew into something bigger: an appreciation for the sheer depth of history and experience that exists in the world beyond the screen. These three communities capture what I've built both for the Roblox community and for myself.
+        </p>
+      </div>
+    </div>
 
       <div class="row g-3" id="groups-container">
         <!-- Community 1 -->
@@ -690,7 +694,7 @@
 
     <!-- 4. YouTube Channel & Stats -->
     <section class="mb-5">
-      <div class="hud-panel mb-4">
+      <div class="hud-panel mb-4" style="--panel-accent: #dc3545;">
         <div class="panel-header">
           <span class="panel-title"><i class="bi bi-youtube me-2"></i>My Youtube</span>
         </div>
@@ -703,29 +707,29 @@
 
       <div class="row g-3">
         <div class="col-6 col-md-3">
-          <div class="hud-panel panel-pink text-center py-4">
-            <i class="bi bi-person-video2 fs-2 text-danger mb-2"></i>
+          <div class="hud-panel text-center py-4" style="--panel-accent: #198754;">
+            <i class="bi bi-person-video2 fs-2 mb-2" style="color: #198754;"></i>
             <span class="d-block small">Subscribers</span>
             <strong id="stat-yt-subs" class="fs-4 text-white">Loading...</strong>
           </div>
         </div>
         <div class="col-6 col-md-3">
-          <div class="hud-panel panel-orange text-center py-4">
-            <i class="bi bi-play-btn fs-2 text-danger mb-2"></i>
+          <div class="hud-panel text-center py-4" style="--panel-accent: #dc3545;">
+            <i class="bi bi-play-btn fs-2 mb-2" style="color: #dc3545;"></i>
             <span class="d-block small">Videos Posted</span>
             <strong id="stat-yt-videos" class="fs-4 text-white">Loading...</strong>
           </div>
         </div>
         <div class="col-6 col-md-3">
-          <div class="hud-panel panel-purple text-center py-4">
-            <i class="bi bi-eye fs-2 text-danger mb-2"></i>
+          <div class="hud-panel text-center py-4" style="--panel-accent: #0d6efd;">
+            <i class="bi bi-eye fs-2 mb-2" style="color: #0d6efd;"></i>
             <span class="d-block small">Total Views</span>
             <strong id="stat-yt-views" class="fs-4 text-white">Loading...</strong>
           </div>
         </div>
         <div class="col-6 col-md-3">
-          <div class="hud-panel panel-yellow text-center py-4">
-            <i class="bi bi-calendar3 fs-2 text-danger mb-2"></i>
+          <div class="hud-panel text-center py-4" style="--panel-accent: var(--orange-hover);">
+            <i class="bi bi-calendar3 fs-2 mb-2" style="color: var(--orange-hover);"></i>
             <span class="d-block small">Joined YouTube</span>
             <strong id="stat-yt-joined" class="fs-4 text-white">Loading...</strong>
           </div>
@@ -735,7 +739,7 @@
 
     <!-- 6. Call to Action / Downloads & Subscription -->
     <section class="mb-5">
-      <div class="hud-panel text-center py-5">
+      <div class="hud-panel text-center py-5 panel-orange">
         <div class="panel-header mb-3">
           <span class="panel-title"><i class="bi bi-download me-2"></i>Let's connect!</span>
         </div>
