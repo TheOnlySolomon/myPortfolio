@@ -1355,3 +1355,21 @@ html {
 .passed-card--cyan   { --accent: var(--cyan); }
 .passed-card--violet { --accent: var(--violet); }
 .passed-card--amber  { --accent: var(--amber); }
+
+/* --- HUD button: outline that fills with its accent + glow on hover --- */
+.btn-hud {
+  --btn-accent: var(--cyan);
+  border: 1px solid var(--btn-accent);
+  color: var(--btn-accent) !important;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.btn-hud:hover {
+  background: var(--btn-accent);
+  color: var(--black) !important;
+  box-shadow: 0 0 14px var(--btn-accent);
+  transform: translateY(-2px);
+}
