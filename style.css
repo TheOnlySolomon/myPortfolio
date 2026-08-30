@@ -1286,7 +1286,7 @@ a { color: inherit; }
 
 .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 .gallery-item{display:flex;flex-direction:column;height:100%}
-.gallery-image{width:100%;aspect-ratio:16/9;overflow:hidden;border:3px solid rgba(0, 220, 255, .35);background:#111;border-radius:4px;transition:.3s ease}
+.gallery-image{width:100%;aspect-ratio:16/9;overflow:hidden;border:3px solid var(--line);background:#111;border-radius:4px;transition:.3s ease}
 .gallery-image img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .3s ease}
 .gallery-item:hover .gallery-image img{transform:scale(1.01)}
 
