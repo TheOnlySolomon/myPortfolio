@@ -1373,3 +1373,52 @@ html {
   box-shadow: 0 0 14px var(--btn-accent);
   transform: translateY(-2px);
 }
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.site-footer {
+  position: relative;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent);
+  opacity: 0.6;
+}
+.social-links { margin-bottom: 0.75rem; }
+.social-links a {
+  --icon-accent: var(--cyan);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 0.4rem;
+  color: var(--gray-2);
+  font-size: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.social-links a:hover {
+  color: var(--icon-accent);
+  border-color: var(--icon-accent);
+  box-shadow: 0 0 12px var(--icon-accent);
+  transform: translateY(-2px);
+}
+.footer-copy {
+  color: var(--gray-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-family: var(--font);
+  margin: 0;
+}
