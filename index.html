@@ -105,108 +105,118 @@
           </div>
         </div>
 
-        <!-- Panel 2: Stats Overview -->
-        <div class="hud-panel panel-purple panel-compact">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-bar-chart-fill me-2"></i>Github Stats</span>
-            <span class="panel-status-dot online"></span>
-          </div>
-          <div class="panel-body">
-            <div class="row g-2">
-              <div class="col-6">
-                <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
-                  <span class="stat-number" id="totalCommits">--</span>
-                  <span class="stat-label d-block">Total</span>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
-                  <span class="stat-number" id="avgCommits">--</span>
-                  <span class="stat-label d-block">Average</span>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
-                  <span class="stat-number" id="bestDay">--</span>
-                  <span class="stat-label d-block">Best Month</span>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
-                  <span class="stat-number" id="streakCount">--</span>
-                  <span class="stat-label d-block">Streak</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-         <!-- Panel 3: CV Overview -->
-        <div class="hud-panel panel-purple panel-compact">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-file-earmark-person-fill me-2"></i>My CV</span>
-            <span class="panel-status-dot online"></span>
-          </div>
-          <div class="panel-body">
-            <div class="p-2"
-                style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px);">
-              <div class="d-flex align-items-center gap-1 mb-1">
-                <i class="bi bi-file-earmark-person" style="color: var(--purple-hover, #a78bfa); font-size: 0.85rem;"></i>
-                <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">Solomon_Chua_CV.pdf</span>
-              </div>
-              <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
-                Updated: 21 August 2026<br>
-                PDF • 1 page
-              </p>
-              <div class="d-flex gap-2 mt-2">
-                <a href="cv/Solomon_Chua_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm flex-fill"
-                   style="border: 1px solid var(--purple-hover, #a78bfa); color: var(--purple-hover, #a78bfa); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
-                   onmouseover="this.style.background='var(--purple-hover, #a78bfa)'; this.style.color='var(--bg-dark, #0d1117)';"
-                   onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a78bfa)';">
-                  View CV
-                </a>
-                <a href="cv/Solomon_Chua_CV.pdf" download class="btn btn-sm flex-fill"
-                   style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
-                   onmouseover="this.style.borderColor='var(--purple-hover, #a78bfa)'; this.style.color='var(--white, #f0f6fc)';"
-                   onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.color='var(--gray-1, #8b949e)';">
-                  Download
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 4: My Skills -->
-        <div class="hud-panel panel-purple panel-compact">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-stars me-2"></i>My Skills</span>
-            <span class="panel-status-dot online"></span>
-          </div>
-          <div class="panel-body">
-            <div class="d-flex flex-wrap gap-2">
-              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Voice Chatbot</span>
-              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Text Chatbot</span>
-              <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Website Creation</span>
-            </div>
-          </div>
-        </div>
-
-          <div class="hud-panel panel-purple">
-          <div class="panel-header">
-            <span class="panel-title"><i class="bi bi-envelope-paper-fill me-2"></i>Contact me</span>
+       <div class="row g-2">
+        <div class="col-6 col-md-12">
+          <div class="hud-panel panel-purple panel-compact h-100">
+            <div class="panel-header">
+              <span class="panel-title"><i class="bi bi-bar-chart-fill me-2"></i>Github Stats</span>
               <span class="panel-status-dot online"></span>
             </div>
-          <div class="panel-body">
-            <!-- TODO: replace # with your LinkedIn profile URL -->
-            <p class="m-0" style="font-size: 0.8rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
-              Want to work together or just say hi?
-            </p>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2 w-100"
-              style="border: 1px solid var(--purple-hover, #a855f7); color: var(--purple-hover, #a855f7); background: transparent; transition: all 0.2s ease-in-out;"
-              onmouseover="this.style.background='var(--purple-hover, #a855f7)'; this.style.color='var(--bg-dark, #0d1117)';"
-              onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a855f7)';">
-              <i class="bi bi-send me-1"></i>Contact Me
-            </a>
+            <div class="panel-body">
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
+                    <span class="stat-number" id="totalCommits">--</span>
+                    <span class="stat-label d-block">Total</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
+                    <span class="stat-number" id="avgCommits">--</span>
+                    <span class="stat-label d-block">Average</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
+                    <span class="stat-number" id="bestDay">--</span>
+                    <span class="stat-label d-block">Best Month</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat-item text-center p-2" style="background: rgba(167,139,250,0.1); border-radius: 8px;">
+                    <span class="stat-number" id="streakCount">--</span>
+                    <span class="stat-label d-block">Streak</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-12">
+          <div class="hud-panel panel-purple panel-compact h-100">
+            <div class="panel-header">
+              <span class="panel-title"><i class="bi bi-file-earmark-person-fill me-2"></i>My CV</span>
+              <span class="panel-status-dot online"></span>
+            </div>
+            <div class="panel-body">
+              <div class="p-2"
+                  style="border: 1px solid var(--line-bright, #30363d); background-color: var(--bg-dark, #0d1117); border-radius: var(--radius-sm, 6px);">
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-file-earmark-person" style="color: var(--purple-hover, #a78bfa); font-size: 0.85rem;"></i>
+                  <span class="fw-bold" style="color: var(--white, #f0f6fc); font-size: 0.8rem;">Solomon_Chua_CV.pdf</span>
+                </div>
+                <p class="m-0" style="font-size: 0.7rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
+                  Updated: 21 August 2026<br>
+                  PDF • 1 page
+                </p>
+                <div class="d-flex gap-2 mt-2">
+                  <a href="cv/Solomon_Chua_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm flex-fill"
+                    style="border: 1px solid var(--purple-hover, #a78bfa); color: var(--purple-hover, #a78bfa); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.background='var(--purple-hover, #a78bfa)'; this.style.color='var(--bg-dark, #0d1117)';"
+                    onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a78bfa)';">
+                    View CV
+                  </a>
+                  <a href="cv/Solomon_Chua_CV.pdf" download class="btn btn-sm flex-fill"
+                    style="border: 1px solid var(--line-bright, #30363d); color: var(--gray-1, #8b949e); background: transparent; font-size: 0.7rem; transition: all 0.2s ease-in-out;"
+                    onmouseover="this.style.borderColor='var(--purple-hover, #a78bfa)'; this.style.color='var(--white, #f0f6fc)';"
+                    onmouseout="this.style.borderColor='var(--line-bright, #30363d)'; this.style.color='var(--gray-1, #8b949e)';">
+                    Download
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row g-2">
+          <!-- Panel 4: My Skills (50% on mobile) -->
+          <div class="col-6 col-md-12">
+            <div class="hud-panel panel-purple panel-compact h-100">
+              <div class="panel-header">
+                <span class="panel-title"><i class="bi bi-stars me-2"></i>My Skills</span>
+                <span class="panel-status-dot online"></span>
+              </div>
+              <div class="panel-body">
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Voice Chatbot</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Text Chatbot</span>
+                  <span class="repo-card-badge" style="color: var(--white); border-color: var(--purple-hover, #a78bfa);">Website Creation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Me Panel (50% on mobile) -->
+          <div class="col-6 col-md-12">
+            <div class="hud-panel panel-purple h-100">
+              <div class="panel-header">
+                <span class="panel-title"><i class="bi bi-envelope-paper-fill me-2"></i>Contact me</span>
+                <span class="panel-status-dot online"></span>
+              </div>
+              <div class="panel-body">
+                <!-- TODO: replace # with your LinkedIn profile URL -->
+                <p class="m-0" style="font-size: 0.8rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
+                  Want to work together or just say hi?
+                </p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2 w-100"
+                  style="border: 1px solid var(--purple-hover, #a855f7); color: var(--purple-hover, #a855f7); background: transparent; transition: all 0.2s ease-in-out;"
+                  onmouseover="this.style.background='var(--purple-hover, #a855f7)'; this.style.color='var(--bg-dark, #0d1117)';"
+                  onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a855f7)';">
+                  <i class="bi bi-send me-1"></i>Contact Me
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
