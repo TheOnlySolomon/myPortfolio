@@ -220,23 +220,17 @@
           </div>
 
           <!-- Contact Me Panel (50% on mobile) -->
+          <!-- Spotify Top Chart Panel (50% on mobile) -->
           <div class="col-6 col-md-12">
             <div class="hud-panel panel-purple h-100">
               <div class="panel-header">
-                <span class="panel-title"><i class="bi bi-envelope-paper-fill me-2"></i>My Playlist</span>
+                <span class="panel-title"><i class="bi bi-spotify me-2"></i>My Playlist</span>
                 <span class="panel-status-dot online"></span>
               </div>
               <div class="panel-body">
-                <!-- TODO: replace # with your LinkedIn profile URL -->
-                <p class="m-0" style="font-size: 0.8rem; color: var(--gray-1, #8b949e); line-height: 1.4;">
-                  Want to work together or just say hi?
-                </p>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2 w-100"
-                  style="border: 1px solid var(--purple-hover, #a855f7); color: var(--purple-hover, #a855f7); background: transparent; transition: all 0.2s ease-in-out;"
-                  onmouseover="this.style.background='var(--purple-hover, #a855f7)'; this.style.color='var(--bg-dark, #0d1117)';"
-                  onmouseout="this.style.background='transparent'; this.style.color='var(--purple-hover, #a855f7)';">
-                  <i class="bi bi-send me-1"></i>Contact Me
-                </a>
+                <div id="playlist-list" style="max-height: 180px; overflow-y: auto;">
+                  <p class="m-0" style="font-size: 0.75rem; color: var(--gray-1, #8b949e);">Loading live chart...</p>
+                </div>
               </div>
             </div>
           </div>
