@@ -44,9 +44,9 @@ export default async function handler(req, res) {
   try {
     const token = await getAccessToken(clientId, clientSecret);
 
-    const target = new URL(`https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`);
+    const target = new URL(`https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/items`);
     target.searchParams.set("limit", "100");
-    target.searchParams.set("fields", "items(track(name,artists(name),album(images),external_urls))");
+    target.searchParams.set("fields", "items(item(name,artists(name),album(images),external_urls))");
 
     const response = await fetch(target.toString(), {
       headers: { Authorization: `Bearer ${token}` }
@@ -59,14 +59,15 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     const tracks = (data.items || [])
-      .filter(item => item.track)
+      .map(item => item.item || item.track) // handles standard track objects
+      .filter(Boolean)
       .slice(0, TRACK_LIMIT)
-      .map((item, index) => ({
+      .map((track, index) => ({
         rank: index + 1,
-        title: item.track.name,
-        artist: (item.track.artists || []).map(a => a.name).join(", "),
-        image: item.track.album?.images?.[2]?.url || item.track.album?.images?.[0]?.url || null,
-        url: item.track.external_urls?.spotify || null
+        title: track.name,
+        artist: (track.artists || []).map(a => a.name).join(", "),
+        image: track.album?.images?.[2]?.url || track.album?.images?.[0]?.url || null,
+        url: track.external_urls?.spotify || null
       }));
 
     res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=3600");
