@@ -652,3 +652,75 @@ document.addEventListener('DOMContentLoaded', () => {
 // Run on page load
 document.addEventListener('DOMContentLoaded', setSingaporeGreeting);
 
+// -------------------- Spotify live top chart --------------------
+// Fetches a live chart through our own Vercel serverless function
+// (/api/spotify.js), which keeps the Spotify client secret server-side.
+
+const SP_CACHE_KEY = "spotify_top_cache";
+const SP_CACHE_TIME_KEY = "spotify_top_timestamp";
+const SP_CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
+
+async function fetchSpotifyTop() {
+  const list = document.getElementById("playlist-list");
+  if (!list) return;
+
+  const now = Date.now();
+  const cachedData = localStorage.getItem(SP_CACHE_KEY);
+  const cachedTimestamp = localStorage.getItem(SP_CACHE_TIME_KEY);
+
+  if (cachedData && cachedTimestamp && (now - parseInt(cachedTimestamp) < SP_CACHE_DURATION)) {
+    renderPlaylist(JSON.parse(cachedData));
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/spotify");
+    if (!response.ok) throw new Error(`Spotify proxy responded ${response.status}`);
+
+    const data = await response.json();
+    const tracks = data.tracks || [];
+    if (!tracks.length) throw new Error("No tracks returned");
+
+    localStorage.setItem(SP_CACHE_KEY, JSON.stringify(tracks));
+    localStorage.setItem(SP_CACHE_TIME_KEY, now.toString());
+
+    renderPlaylist(tracks);
+  } catch (error) {
+    console.warn("Spotify live fetch failed:", error);
+
+    if (cachedData) {
+      renderPlaylist(JSON.parse(cachedData));
+      return;
+    }
+
+    list.innerHTML = `<p class="m-0" style="font-size: 0.75rem; color: var(--gray-1, #8b949e);">Couldn't load the live chart right now.</p>`;
+  }
+}
+
+function escapePlaylistHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str || "";
+  return div.innerHTML;
+}
+
+function renderPlaylist(tracks) {
+  const list = document.getElementById("playlist-list");
+  if (!list) return;
+
+  list.innerHTML = tracks.map(track => `
+    <a href="${track.url || '#'}" target="_blank" rel="noopener noreferrer"
+      class="d-flex align-items-center gap-2 py-1 text-decoration-none"
+      style="border-bottom: 1px solid var(--line-bright, #30363d);">
+      <span style="width: 1.4rem; font-size: 0.7rem; color: var(--gray-1, #8b949e); flex-shrink: 0;">${track.rank}</span>
+      ${track.image ? `<img src="${track.image}" alt="" width="28" height="28" style="border-radius: 4px; flex-shrink: 0;">` : ""}
+      <span class="d-flex flex-column" style="min-width: 0;">
+        <span style="font-size: 0.75rem; color: var(--white, #f0f6fc); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${escapePlaylistHtml(track.title)}</span>
+        <span style="font-size: 0.68rem; color: var(--gray-1, #8b949e); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${escapePlaylistHtml(track.artist)}</span>
+      </span>
+    </a>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchSpotifyTop();
+});
