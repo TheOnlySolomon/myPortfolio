@@ -1,5 +1,6 @@
-// api/spotify.js
-const ARTIST_ID = "06HL4z0CvFAxyA2316fP3w"; // Replace with any Spotify Artist ID (e.g. Taylor Swift)
+// /api/spotify.js
+const PLAYLIST_ID = "5FN6Ego7eLX6zHuCMovIR2";
+const TRACK_LIMIT = 100;
 
 let cachedToken = null;
 let tokenExpiresAt = 0;
@@ -35,9 +36,10 @@ export default async function handler(req, res) {
   try {
     const token = await getAccessToken(clientId, clientSecret);
 
-    // --- REPLACED CODE STARTS HERE ---
-    const target = new URL(`https://api.spotify.com/v1/artists/${ARTIST_ID}/top-tracks`);
-    target.searchParams.set("market", "US");
+    // FIX: Changed /tracks to /items (the current endpoint)
+    const target = new URL(`https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/items`);
+    target.searchParams.set("limit", "100");
+    target.searchParams.set("fields", "items(track(name,artists(name),album(images),external_urls),item(name,artists(name),album(images),external_urls))");
 
     const response = await fetch(target.toString(), {
       headers: { Authorization: `Bearer ${token}` }
@@ -51,20 +53,21 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    const tracks = (data.tracks || [])
-      .slice(0, 10)
+    // Map items safely matching both object structures
+    const tracks = (data.items || [])
+      .map(item => item.track || item.item)
+      .filter(Boolean)
+      .slice(0, TRACK_LIMIT)
       .map((track, index) => ({
         rank: index + 1,
         title: track.name,
-        artist: track.artists.map(a => a.name).join(", "),
+        artist: (track.artists || []).map(a => a.name).join(", "),
         image: track.album?.images?.[2]?.url || track.album?.images?.[0]?.url || null,
         url: track.external_urls?.spotify || null
       }));
-    // --- REPLACED CODE ENDS HERE ---
 
     res.setHeader("Cache-Control", "s-maxage=1800, stale-while-revalidate=3600");
     return res.status(200).json({ tracks });
-
   } catch (error) {
     console.error("Spotify proxy error:", error);
     return res.status(500).json({ error: "Failed to fetch Spotify data" });
