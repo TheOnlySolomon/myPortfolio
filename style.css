@@ -757,13 +757,19 @@ a { color: inherit; }
 .hud-friends { --card-theme: #20c997; }   /* Teal */
 .hud-followers { --card-theme: #a855f7; } /* Purple */
 .hud-favorites { --card-theme: #ff4d6d; } /* Pink/Red */
+.hud-mathematics { --card-theme: #eab308; } /* Yellow */
+.hud-philosophy { --card-theme: #9b6bff; }  /* Violet */
+.hud-finance { --card-theme: #f97316; }     /* Orange */
 
 /* Generic hover rule applying the card's specific theme */
 .hud-joined:hover,
 .hud-badges:hover,
 .hud-friends:hover,
 .hud-followers:hover,
-.hud-favorites:hover {
+.hud-favorites:hover,
+.hud-mathematics:hover,
+.hud-philosophy:hover,
+.hud-finance:hover {
   border-color: var(--card-theme) !important;
   box-shadow: 0 0 15px var(--card-theme) !important;
 }
@@ -796,6 +802,9 @@ a { color: inherit; }
 .hud-friends i { color: #20c997 !important; }   /* Teal/Green */
 .hud-followers i { color: #a855f7 !important; } /* Purple */
 .hud-favorites i { color: #ff4d6d !important; } /* Heart Pink/Red */
+.hud-mathematics i { color: #eab308 !important; } /* Yellow */
+.hud-philosophy i { color: #9b6bff !important; }  /* Violet */
+.hud-finance i { color: #f97316 !important; }     /* Orange */
 
 /* Card Container Layout */
 .my-game-card {

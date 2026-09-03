@@ -84,8 +84,9 @@
             <div class="col">
               <span class="badge badge-outline badge-blue me-1">Self-help</span>
               <span class="badge badge-outline badge-green me-1">A.I.</span>
-              <span class="badge badge-outline badge-yellow me-1">History</span>
-              <span class="badge badge-outline badge-purple me-1">Others</span>
+              <span class="badge badge-outline badge-yellow me-1">Mathematics</span>
+              <span class="badge badge-outline badge-purple me-1">History</span>
+              <span class="badge badge-outline badge-red me-1">Others</span>
             </div>
           </div>
         </div>
@@ -142,41 +143,64 @@
       </div>
     </section>
 
-    <!-- 3. Reading Tracker Stats (5 Panels in 1 Row) -->
+    <!-- 3. Reading Tracker Stats (5 + 3 Panels, Centered) -->
     <section class="mb-5">
       <div class="panel-header mb-3">
         <span class="panel-title"><i class="bi bi-bar-chart-fill me-2"></i>Reading Tracker Stats</span>
       </div>
       <div class="row g-3">
-        <div class="col-6 col-md-4 col-lg">
+        <div class="col-4 col-md-4 col-lg-3">
           <div class="hud-panel hud-joined text-center py-3">
             <i class="bi bi-journal-bookmark-fill fs-3 mb-1"></i>
             <span class="d-block small">Total Books Read</span>
             <strong id="stat-total" class="fs-6">0</strong>
           </div>
         </div>
-        <div class="col-6 col-md-4 col-lg">
+        <div class="col-4 col-md-4 col-lg-2">
           <div class="hud-panel hud-badges text-center py-3">
             <i class="bi bi-lightbulb fs-3 mb-1"></i>
             <span class="d-block small">Self-help</span>
             <strong id="stat-selfhelp" class="fs-6">0</strong>
           </div>
         </div>
-        <div class="col-6 col-md-4 col-lg">
+        <div class="col-4 col-md-4 col-lg-2">
           <div class="hud-panel hud-friends text-center py-3">
             <i class="bi bi-cpu fs-3 mb-1"></i>
             <span class="d-block small">A.I.</span>
             <strong id="stat-ai" class="fs-6">0</strong>
           </div>
         </div>
-        <div class="col-6 col-md-4 col-lg">
+        <div class="col-6 col-md-4 col-lg-2">
           <div class="hud-panel hud-followers text-center py-3">
             <i class="bi bi-hourglass-split fs-3 mb-1"></i>
             <span class="d-block small">History</span>
             <strong id="stat-history" class="fs-6">0</strong>
           </div>
         </div>
-        <div class="col-6 col-md-4 col-lg">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="hud-panel hud-mathematics text-center py-3">
+            <i class="bi bi-calculator fs-3 mb-1"></i>
+            <span class="d-block small">Mathematics</span>
+            <strong id="stat-math" class="fs-6">0</strong>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 justify-content-center mt-1">
+        <div class="col-4 col-md-4 col-lg-3">
+          <div class="hud-panel hud-philosophy text-center py-3">
+            <i class="bi bi-yin-yang fs-3 mb-1"></i>
+            <span class="d-block small">Philosophy</span>
+            <strong id="stat-philosophy" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-4 col-md-4 col-lg-2">
+          <div class="hud-panel hud-finance text-center py-3">
+            <i class="bi bi-cash-coin fs-3 mb-1"></i>
+            <span class="d-block small">Finance</span>
+            <strong id="stat-finance" class="fs-6">0</strong>
+          </div>
+        </div>
+        <div class="col-4 col-md-4 col-lg-3">
           <div class="hud-panel hud-favorites text-center py-3">
             <i class="bi bi-stars fs-3 mb-1"></i>
             <span class="d-block small">Others</span>
@@ -380,6 +404,9 @@
         document.getElementById('stat-selfhelp').textContent = data.categories.self_help || 0;
         document.getElementById('stat-ai').textContent = data.categories.ai || 0;
         document.getElementById('stat-history').textContent = data.categories.history || 0;
+        document.getElementById('stat-math').textContent = data.categories.mathematics || 0;
+        document.getElementById('stat-philosophy').textContent = data.categories.philosophy || 0;
+        document.getElementById('stat-finance').textContent = data.categories.finance || 0;
         document.getElementById('stat-others').textContent = data.categories.others || 0;
       })
       .catch(err => console.error('Error loading book stats from books.json:', err));
