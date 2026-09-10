@@ -1,12 +1,12 @@
 {
-  "total_books_read": 109,
+  "total_books_read": 111,
   "categories": {
     "self_help": 19,
     "ai": 14,
     "history": 11,
-    "mathematics": 4,
-    "philosophy": 5,
-    "finance": 23,
+    "mathematics": 6,
+    "philosophy": 6,
+    "finance": 22,
     "others": 33
   }
 }
