@@ -242,26 +242,13 @@ async function initLanguageChart() {
   if (!ctx) return;
 
   try {
-    const username = 'TheOnlySolomon';
-    const response = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(`users/${username}/repos?per_page=100`)}`);
-    if (!response.ok) throw new Error('Failed to fetch repos');
-    
-    const repos = await response.json();
-    const projectRepos = repos.filter(repo => !repo.fork);
-    
-    const languageMap = {};
-    
-    for (const repo of projectRepos) {
-      const langPath = new URL(repo.languages_url).pathname.slice(1);
-      const langResponse = await fetch(`/api/github-rest?endpoint=${encodeURIComponent(langPath)}`);
-      if (langResponse.ok) {
-        const langData = await langResponse.json();
-        for (const [lang, bytes] of Object.entries(langData)) {
-          languageMap[lang] = (languageMap[lang] || 0) + bytes;
-        }
-      }
-    }
-    
+    // One request: /api/github-languages does the per-repo fan-out server-side.
+    const response = await fetch('/api/github-languages');
+    if (!response.ok) throw new Error(`Language API error: ${response.status}`);
+
+    const { languages: languageMap } = await response.json();
+    if (!languageMap || typeof languageMap !== 'object') throw new Error('Malformed language data');
+
     const totalBytes = Object.values(languageMap).reduce((a, b) => a + b, 0);
     
     const filteredLanguages = {};
